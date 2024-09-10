@@ -66,7 +66,7 @@ with final.pkgs.lib; let
     rust-analyzer
   ];
 in {
-  nvim-pkg = mkNeovim {
+  vt-nvim = mkNeovim {
     plugins = all-plugins;
     inherit extraPackages;
   };
