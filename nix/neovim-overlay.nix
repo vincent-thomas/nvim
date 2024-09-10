@@ -1,10 +1,13 @@
 # This overlay, when applied to nixpkgs, adds the final neovim derivation to nixpkgs.
-{inputs}: final: prev:
-with final.pkgs.lib; let
+{ inputs }:
+final: prev:
+with final.pkgs.lib;
+let
   pkgs = final;
 
   # Use this to create a plugin from a flake input
-  mkNvimPlugin = src: pname:
+  mkNvimPlugin =
+    src: pname:
     pkgs.vimUtils.buildVimPlugin {
       inherit pname src;
       version = src.lastModifiedDate;
@@ -56,16 +59,25 @@ with final.pkgs.lib; let
   ];
 
   extraPackages = with pkgs; [
+    # For nix
     statix
     nixd
     nixfmt-rfc-style
 
+    # For lua
     lua-language-server
+    stylua
 
+    # For rust
     rustfmt
     rust-analyzer
+
+    # Ts/js
+    typescript-language-server
+    prettierd
   ];
-in {
+in
+{
   vt-nvim = mkNeovim {
     plugins = all-plugins;
     inherit extraPackages;
