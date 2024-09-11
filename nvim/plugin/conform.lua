@@ -1,22 +1,19 @@
-
-local conform = require("conform")
-
-local M = {}
+local conform = require('conform')
 
 local config = {
   formatters_by_ft = {
-    lua = { "stylua" },
-    rust = { "rustfmt" },
-    javascript = { "prettierd" },
-    nix = { "nixfmt" },
+    lua = { 'stylua' },
+    rust = { 'rustfmt' },
+    javascript = { 'prettierd' },
+    nix = { 'nixfmt' },
   },
 }
 
 conform.setup(config)
 
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*",
+vim.api.nvim_create_autocmd('BufWritePre', {
+  pattern = '*',
   callback = function(args)
-    require("conform").format({ bufnr = args.buf })
+    require('conform').format { bufnr = args.buf }
   end,
 })
