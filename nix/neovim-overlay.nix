@@ -60,6 +60,9 @@ let
     # Ts/js
     typescript-language-server
     prettierd
+
+    # Markdown
+    marksman
   ];
 in
 {
