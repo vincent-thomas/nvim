@@ -1,10 +1,17 @@
 local conform = require('conform')
 
+local JsFormatters = {
+  'prettierd',
+}
+
 local config = {
   formatters_by_ft = {
     lua = { 'stylua' },
     rust = { 'rustfmt' },
-    javascript = { 'prettierd' },
+    javascript = JsFormatters,
+    javascriptreact = JsFormatters,
+    typescript = JsFormatters,
+    typescriptreact = JsFormatters,
     nix = { 'nixfmt' },
   },
 }
