@@ -1,64 +1,63 @@
-
-local lspconfig = require("lspconfig")
-local nvim_cmp_nvim_lsp = require("cmp_nvim_lsp")
+local lspconfig = require('lspconfig')
+local nvim_cmp_nvim_lsp = require('cmp_nvim_lsp')
 
 local function keybinds(ev)
   local opts = { buffer = ev.buf, silent = true }
-  vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts)
-  vim.keymap.set("n", "gd", vim.lsp.buf.declaration, opts)
-  vim.keymap.set("n", "gD", vim.lsp.buf.definition, opts)
+  vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, opts)
+  vim.keymap.set('n', 'gd', vim.lsp.buf.declaration, opts)
+  vim.keymap.set('n', 'gD', vim.lsp.buf.definition, opts)
 end
 
 local capabilities = nvim_cmp_nvim_lsp.default_capabilities()
 
-lspconfig.tsserver.setup({
+lspconfig.ts_ls.setup {
   capabilities,
-})
+}
 
-lspconfig.dockerls.setup({
+lspconfig.dockerls.setup {
   capabilities,
-})
+}
 
-lspconfig.pyright.setup({
+lspconfig.pyright.setup {
   capabilities,
-})
+}
 
-lspconfig.nixd.setup({
+lspconfig.nixd.setup {
   capabilities,
-})
+}
 
-lspconfig.statix.setup({
+lspconfig.statix.setup {
   capabilities,
-})
+}
 
-lspconfig.lua_ls.setup({
+lspconfig.lua_ls.setup {
   capabilities,
   settings = {
     Lua = {
       -- make the language server recognize "vim" global
       diagnostics = {
-        globals = { "vim" },
+        globals = { 'vim' },
       },
       completion = {
-        callSnippet = "Replace",
+        callSnippet = 'Replace',
       },
     },
   },
-})
-lspconfig.rust_analyzer.setup({
+}
+lspconfig.rust_analyzer.setup {
   capabilities,
   settings = {
-    ["rust-analyzer"] = {
+    ['rust-analyzer'] = {
       check = {
-        command = "clippy",
+        command = 'clippy',
       },
     },
   },
-})
+}
 
-lspconfig.marksman.setup({ capabilities })
+lspconfig.marksman.setup { capabilities }
 
-vim.api.nvim_create_autocmd("LspAttach", {
-  group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
   callback = keybinds,
 })
