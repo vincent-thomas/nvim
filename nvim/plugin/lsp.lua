@@ -30,6 +30,11 @@ lspconfig.statix.setup {
   capabilities,
 }
 
+lspconfig.emmet_ls.setup {
+  capabilities,
+  filetypes = { 'css', 'html', 'javascriptreact', 'typescriptreact' },
+}
+
 lspconfig.lua_ls.setup {
   capabilities,
   settings = {

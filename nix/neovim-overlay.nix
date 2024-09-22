@@ -41,6 +41,8 @@ let
 
     plenary-nvim
     nvim-web-devicons
+
+    emmet-ls
   ];
 
   extraPackages = with pkgs; [
