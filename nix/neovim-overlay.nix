@@ -27,6 +27,8 @@ let
     cmp-path
     cmp-nvim-lua
 
+    luasnip
+
     fzf-lua
 
     gitsigns-nvim
