@@ -41,8 +41,6 @@ let
 
     plenary-nvim
     nvim-web-devicons
-
-    emmet-ls
   ];
 
   extraPackages = with pkgs; [
@@ -65,6 +63,9 @@ let
 
     # Markdown
     marksman
+
+    # Emmet
+    emmet-ls
   ];
 in
 {
