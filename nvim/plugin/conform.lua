@@ -1,7 +1,9 @@
 local conform = require('conform')
 
 local JsFormatters = {
+  'biome',
   'prettierd',
+  stop_after_first = true,
 }
 
 local config = {

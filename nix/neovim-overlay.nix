@@ -62,6 +62,7 @@ let
     # Ts/js
     typescript-language-server
     prettierd
+    biome
 
     # Markdown
     marksman
