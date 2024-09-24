@@ -3,6 +3,7 @@ require('oil').setup {
   columns = {
     'icon',
   },
+  use_default_keymaps = false,
   keymaps = {
     ['g?'] = 'actions.show_help',
     ['<CR>'] = 'actions.select',
