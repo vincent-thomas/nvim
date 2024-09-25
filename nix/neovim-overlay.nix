@@ -69,6 +69,9 @@ let
 
     # Emmet
     emmet-ls
+
+    terraform-ls
+    tflint
   ];
 in
 {

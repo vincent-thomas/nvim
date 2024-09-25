@@ -64,6 +64,9 @@ lspconfig.rust_analyzer.setup {
   },
 }
 
+lspconfig.terraformls.setup { capabilities }
+lspconfig.tflint.setup { capabilities }
+
 lspconfig.marksman.setup { capabilities }
 
 vim.api.nvim_create_autocmd('LspAttach', {
