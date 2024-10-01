@@ -1,6 +1,6 @@
 local config = {
   highlight = {
-    enable = false,
+    enable = true,
     additional_vim_regex_highlighting = false,
     enable_autocmd = false,
   },
@@ -8,4 +8,4 @@ local config = {
   indent = { enable = false },
 }
 
-require("nvim-treesitter.configs").setup(config)
+require('nvim-treesitter.configs').setup(config)
