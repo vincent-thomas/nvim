@@ -57,6 +57,7 @@ let
 
     # For rust
     rustfmt
+    clippy
     rust-analyzer
 
     # Ts/js
