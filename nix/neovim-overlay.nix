@@ -65,6 +65,9 @@ let
     prettierd
     biome
 
+    # Astro
+    astro-language-server
+
     # Markdown
     marksman
 

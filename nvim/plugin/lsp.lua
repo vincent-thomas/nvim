@@ -10,6 +10,10 @@ end
 
 local capabilities = nvim_cmp_nvim_lsp.default_capabilities()
 
+lspconfig.astro.setup {
+  capabilities,
+}
+
 lspconfig.ts_ls.setup {
   capabilities,
 }
