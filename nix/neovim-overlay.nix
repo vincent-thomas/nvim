@@ -46,6 +46,8 @@ let
   ];
 
   extraPackages = with pkgs; [
+    fzf # fzf-lua
+
     # For nix
     statix
     nixd
