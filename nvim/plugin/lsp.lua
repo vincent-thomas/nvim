@@ -45,17 +45,6 @@ lspconfig.emmet_ls.setup {
 
 lspconfig.lua_ls.setup {
   capabilities,
-  settings = {
-    Lua = {
-      -- make the language server recognize "vim" global
-      diagnostics = {
-        globals = { 'vim' },
-      },
-      completion = {
-        callSnippet = 'Replace',
-      },
-    },
-  },
 }
 lspconfig.rust_analyzer.setup {
   capabilities,

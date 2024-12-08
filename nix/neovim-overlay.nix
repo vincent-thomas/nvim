@@ -9,7 +9,7 @@ let
     src: pname:
     pkgs.vimUtils.buildVimPlugin {
       inherit pname src;
-      version = src.lastModifiedDate;
+      version = src.rev;
     };
 
   # Make sure we use the pinned nixpkgs instance for wrapNeovimUnstable,
@@ -20,6 +20,8 @@ let
   mkNeovim = pkgs.callPackage ./mkNeovim.nix { inherit pkgs-wrapNeovim; };
 
   all-plugins = with pkgs.vimPlugins; [
+    (mkNvimPlugin inputs.fzf-lua "fzf-lua")
+    (mkNvimPlugin inputs.oil "oil")
     nvim-treesitter.withAllGrammars
     nvim-cmp # https://github.com/hrsh7th/nvim-cmp
     cmp-nvim-lsp # LSP as completion source | https://github.com/hrsh7th/cmp-nvim-lsp/
@@ -29,7 +31,7 @@ let
 
     luasnip
 
-    fzf-lua
+    # fzf-lua
 
     gitsigns-nvim
     conform-nvim
@@ -37,7 +39,6 @@ let
     nvim-lspconfig
 
     catppuccin-nvim
-    oil-nvim
 
     lualine-nvim
 
