@@ -10,6 +10,7 @@
 
     oil.url = "github:stevearc/oil.nvim";
     oil.flake = false;
+
     gen-luarc.url = "github:mrcjkb/nix-gen-luarc-json";
     gen-luarc.inputs.nixpkgs.follows = "nixpkgs";
 

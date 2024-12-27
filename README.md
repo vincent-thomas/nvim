@@ -1,14 +1,18 @@
-<!-- markdownlint-disable -->
-<br />
+<table align="center">
+<tr><td align="center" width="9999">
+
+# VTs nvim.nix
+
 <div align="center">
-  <h1>❄️  VTs neovim config</h1>
-
-[![Neovim][neovim-shield]][neovim-url]
-[![Nix][nix-shield]][nix-url]
-[![Lua][lua-shield]][lua-url]
-
+  <img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/macchiato.png" width="400" />
 </div>
-<!-- markdownlint-restore -->
+<div align="center">
+  <img src="https://img.shields.io/badge/NixOS-5277C3?logo=nixos&logoColor=fff&style=for-the-badge">
+  <img src="https://img.shields.io/badge/Neovim-57A143?logo=neovim&logoColor=fff&style=for-the-badge">
+</div>
+
+</td></tr>
+</table>
 
 ## :bicyclist: Try
 
