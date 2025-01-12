@@ -55,11 +55,11 @@
     "fzf-lua": {
       "flake": false,
       "locked": {
-        "lastModified": 1733693771,
-        "narHash": "sha256-lRXpVqairhOeYoyBe170YWfJ/QQMB5LtX7Qv2sg5/So=",
+        "lastModified": 1736441500,
+        "narHash": "sha256-ruqNwShtrWn90esJa2a4J2AbxpCj/0IDeUqPUkiLa38=",
         "owner": "ibhagwan",
         "repo": "fzf-lua",
-        "rev": "b0b6ca4b3607db4cbc74e7e8199cd628cb6fbeee",
+        "rev": "af6ecbd7f421e7894127a9e94b40e13172fbfb13",
         "type": "github"
       },
       "original": {
@@ -155,11 +155,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1733581040,
-        "narHash": "sha256-Qn3nPMSopRQJgmvHzVqPcE3I03zJyl8cSbgnnltfFDY=",
+        "lastModified": 1736344531,
+        "narHash": "sha256-8YVQ9ZbSfuUk2bUf2KRj60NRraLPKPS0Q4QFTbc+c2c=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "22c3f2cf41a0e70184334a958e6b124fb0ce3e01",
+        "rev": "bffc22eb12172e6db3c5dde9e3e5628f8e3e7912",
         "type": "github"
       },
       "original": {
@@ -200,11 +200,11 @@
     "oil": {
       "flake": false,
       "locked": {
-        "lastModified": 1733247914,
-        "narHash": "sha256-6Qpx78JqoHNFuSaLfUoNIH7ubylsi8JhgbbAmLeRYBk=",
+        "lastModified": 1736312665,
+        "narHash": "sha256-8vaA9f0jzs+8MfqBYUU9IaOgOeCN6mqSC+9AhjQJkGY=",
         "owner": "stevearc",
         "repo": "oil.nvim",
-        "rev": "9a59256c8e88b29d2150e99b5960b2f111e51f75",
+        "rev": "7041528bdedb350ad66e650684deec8456e053cc",
         "type": "github"
       },
       "original": {

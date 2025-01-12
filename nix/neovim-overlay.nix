@@ -79,6 +79,9 @@ let
 
     terraform-ls
     tflint
+
+    # Go
+    gopls
   ];
 in
 {

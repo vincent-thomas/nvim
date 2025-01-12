@@ -43,6 +43,10 @@ lspconfig.emmet_ls.setup {
   filetypes = { 'css', 'html', 'javascriptreact', 'typescriptreact' },
 }
 
+lspconfig.gopls.setup {
+  capabilities,
+}
+
 lspconfig.lua_ls.setup {
   capabilities,
 }
