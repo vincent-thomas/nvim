@@ -22,6 +22,8 @@ let
   all-plugins = with pkgs.vimPlugins; [
     (mkNvimPlugin inputs.oil "oil")
     (mkNvimPlugin inputs.nvim-lspconfig "nvim-lspconfig")
+    (mkNvimPlugin inputs.conform "conform")
+    (mkNvimPlugin inputs.lualine "lualine")
 
     nvim-treesitter.withAllGrammars
     nvim-cmp # https://github.com/hrsh7th/nvim-cmp
@@ -35,12 +37,9 @@ let
     fzf-lua
 
     gitsigns-nvim
-    conform-nvim
     fidget-nvim
 
     catppuccin-nvim
-
-    lualine-nvim
 
     plenary-nvim
     nvim-web-devicons
@@ -60,7 +59,6 @@ let
 
     # For rust
     rustfmt
-    clippy
     rust-analyzer
 
     # Ts/js

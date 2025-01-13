@@ -52,13 +52,6 @@ lspconfig.lua_ls.setup {
 }
 lspconfig.rust_analyzer.setup {
   capabilities,
-  settings = {
-    ['rust-analyzer'] = {
-      check = {
-        command = 'clippy',
-      },
-    },
-  },
 }
 
 lspconfig.terraformls.setup { capabilities }

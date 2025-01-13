@@ -11,6 +11,12 @@
     nvim-lspconfig.url = "github:neovim/nvim-lspconfig";
     nvim-lspconfig.flake = false;
 
+    conform.url = "github:stevearc/conform.nvim";
+    conform.flake = false;
+
+    lualine.url = "github:nvim-lualine/lualine.nvim";
+    lualine.flake = false;
+
     gen-luarc.url = "github:mrcjkb/nix-gen-luarc-json";
     gen-luarc.inputs.nixpkgs.follows = "nixpkgs";
 
