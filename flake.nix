@@ -5,11 +5,11 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
 
-    fzf-lua.url = "github:ibhagwan/fzf-lua";
-    fzf-lua.flake = false;
-
     oil.url = "github:stevearc/oil.nvim";
     oil.flake = false;
+
+    nvim-lspconfig.url = "github:neovim/nvim-lspconfig";
+    nvim-lspconfig.flake = false;
 
     gen-luarc.url = "github:mrcjkb/nix-gen-luarc-json";
     gen-luarc.inputs.nixpkgs.follows = "nixpkgs";
