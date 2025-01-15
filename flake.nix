@@ -5,9 +5,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
 
-    oil.url = "github:stevearc/oil.nvim";
-    oil.flake = false;
-
     nvim-lspconfig.url = "github:neovim/nvim-lspconfig";
     nvim-lspconfig.flake = false;
 
@@ -20,8 +17,20 @@
     gen-luarc.url = "github:mrcjkb/nix-gen-luarc-json";
     gen-luarc.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Add bleeding-edge plugins here.
-    # They can be updated with `nix flake update` (make sure to commit the generated flake.lock)
+    mini-files.url = "github:echasnovski/mini.files";
+    mini-files.flake = false;
+
+    mini-pick.url = "github:echasnovski/mini.pick";
+    mini-pick.flake = false;
+
+    mini-extra.url = "github:echasnovski/mini.extra";
+    mini-extra.flake = false;
+
+    fidget.url = "github:j-hui/fidget.nvim";
+    fidget.flake = false;
+
+    luasnip.url = "github:L3MON4D3/LuaSnip";
+    luasnip.flake = false;
   };
 
   outputs =

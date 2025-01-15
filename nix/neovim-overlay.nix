@@ -20,10 +20,16 @@ let
   mkNeovim = pkgs.callPackage ./mkNeovim.nix { inherit pkgs-wrapNeovim; };
 
   all-plugins = with pkgs.vimPlugins; [
-    (mkNvimPlugin inputs.oil "oil")
     (mkNvimPlugin inputs.nvim-lspconfig "nvim-lspconfig")
     (mkNvimPlugin inputs.conform "conform")
     (mkNvimPlugin inputs.lualine "lualine")
+
+    (mkNvimPlugin inputs.mini-files "mini.files")
+    (mkNvimPlugin inputs.mini-pick "mini.pick")
+    (mkNvimPlugin inputs.mini-extra "mini.extra")
+
+    (mkNvimPlugin inputs.fidget "fidget")
+    (mkNvimPlugin inputs.luasnip "luasnip")
 
     nvim-treesitter.withAllGrammars
     nvim-cmp # https://github.com/hrsh7th/nvim-cmp
@@ -32,12 +38,7 @@ let
     cmp-path
     cmp-nvim-lua
 
-    luasnip
-
-    fzf-lua
-
     gitsigns-nvim
-    fidget-nvim
 
     catppuccin-nvim
 
