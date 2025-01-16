@@ -24,6 +24,7 @@ local function pick_diagnostic()
 end
 
 vim.keymap.set('n', '<C-p>', pick.builtin.files)
+vim.keymap.set('n', '<C-g>', pick.builtin.grep_live)
 vim.keymap.set('n', 'gt', pick_type_def)
 vim.keymap.set('n', 'gi', pick_impl)
 vim.keymap.set('n', '<C-e>', pick_diagnostic)
