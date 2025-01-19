@@ -24,12 +24,13 @@ let
     (mkNvimPlugin inputs.conform "conform")
     (mkNvimPlugin inputs.lualine "lualine")
 
-    (mkNvimPlugin inputs.mini-files "mini.files")
+    (mkNvimPlugin inputs.oil "oil")
     (mkNvimPlugin inputs.mini-pick "mini.pick")
     (mkNvimPlugin inputs.mini-extra "mini.extra")
 
     (mkNvimPlugin inputs.fidget "fidget")
     (mkNvimPlugin inputs.luasnip "luasnip")
+    (mkNvimPlugin inputs.markdown "render-markdown")
 
     nvim-treesitter.withAllGrammars
     nvim-cmp # https://github.com/hrsh7th/nvim-cmp

@@ -17,8 +17,8 @@
     gen-luarc.url = "github:mrcjkb/nix-gen-luarc-json";
     gen-luarc.inputs.nixpkgs.follows = "nixpkgs";
 
-    mini-files.url = "github:echasnovski/mini.files";
-    mini-files.flake = false;
+    oil.url = "github:stevearc/oil.nvim";
+    oil.flake = false;
 
     mini-pick.url = "github:echasnovski/mini.pick";
     mini-pick.flake = false;
@@ -31,6 +31,9 @@
 
     luasnip.url = "github:L3MON4D3/LuaSnip";
     luasnip.flake = false;
+
+    markdown.url = "github:MeanderingProgrammer/render-markdown.nvim";
+    markdown.flake = false;
   };
 
   outputs =
@@ -76,6 +79,8 @@
             ''
               ln -fs ${luarc} .luarc.json
             '';
+
+          buildInputs = [ pkgs.vt-nvim ];
         };
       }
     )
