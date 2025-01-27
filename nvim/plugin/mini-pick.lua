@@ -23,13 +23,8 @@ local function pick_diagnostic()
   extras.pickers.diagnostic { scope = 'all', sort_by = 'severity' }
 end
 
-local function pick_actions()
-  extras.pickers.list { scope = 'quickfix' }
-end
-
 vim.keymap.set('n', '<C-p>', pick.builtin.files)
 vim.keymap.set('n', '<C-g>', pick.builtin.grep_live)
 vim.keymap.set('n', 'gt', pick_type_def)
 vim.keymap.set('n', 'gi', pick_impl)
 vim.keymap.set('n', '<C-e>', pick_diagnostic)
-vim.keymap.set('n', '<C-a>', pick_actions)

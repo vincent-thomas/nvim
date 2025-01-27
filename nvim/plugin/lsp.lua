@@ -6,6 +6,7 @@ local function keybinds(ev)
   vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, opts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.declaration, opts)
   vim.keymap.set('n', 'gD', vim.lsp.buf.definition, opts)
+  vim.keymap.set('n', '<C-a>', vim.lsp.buf.code_action, opts)
 end
 
 local capabilities = nvim_cmp_nvim_lsp.default_capabilities()
