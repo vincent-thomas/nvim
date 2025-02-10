@@ -16,6 +16,38 @@
         "type": "github"
       }
     },
+    "copilot-cmp": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1733947099,
+        "narHash": "sha256-erRL8bY/zuwuCZfttw+avTrFV7pjv2H6v73NzY2bymM=",
+        "owner": "zbirenbaum",
+        "repo": "copilot-cmp",
+        "rev": "15fc12af3d0109fa76b60b5cffa1373697e261d1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "zbirenbaum",
+        "repo": "copilot-cmp",
+        "type": "github"
+      }
+    },
+    "copilot-lua": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1734926641,
+        "narHash": "sha256-c2UE0dLBtoYMvMxg+jXzfsD+wN9sZLvftJq4gGmooZU=",
+        "owner": "zbirenbaum",
+        "repo": "copilot.lua",
+        "rev": "886ee73b6d464b2b3e3e6a7ff55ce87feac423a9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "zbirenbaum",
+        "repo": "copilot.lua",
+        "type": "github"
+      }
+    },
     "fidget": {
       "flake": false,
       "locked": {
@@ -328,6 +360,8 @@
     "root": {
       "inputs": {
         "conform": "conform",
+        "copilot-cmp": "copilot-cmp",
+        "copilot-lua": "copilot-lua",
         "fidget": "fidget",
         "flake-utils": "flake-utils",
         "gen-luarc": "gen-luarc",

@@ -34,6 +34,12 @@
 
     markdown.url = "github:MeanderingProgrammer/render-markdown.nvim";
     markdown.flake = false;
+
+    copilot-lua.url = "github:zbirenbaum/copilot.lua";
+    copilot-lua.flake = false;
+
+    copilot-cmp.url = "github:zbirenbaum/copilot-cmp";
+    copilot-cmp.flake = false;
   };
 
   outputs =

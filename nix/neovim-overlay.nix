@@ -32,6 +32,9 @@ let
     (mkNvimPlugin inputs.luasnip "luasnip")
     (mkNvimPlugin inputs.markdown "render-markdown")
 
+    (mkNvimPlugin inputs.copilot-lua "copilot")
+    # (mkNvimPlugin inputs.copilot-cmp "copilot_cmp")
+
     nvim-treesitter.withAllGrammars
     nvim-cmp # https://github.com/hrsh7th/nvim-cmp
     cmp-nvim-lsp # LSP as completion source | https://github.com/hrsh7th/cmp-nvim-lsp/
@@ -45,6 +48,7 @@ let
 
     plenary-nvim
     nvim-web-devicons
+
   ];
 
   extraPackages = with pkgs; [
