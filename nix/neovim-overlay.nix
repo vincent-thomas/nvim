@@ -88,7 +88,7 @@ let
     gopls
 
     # C++
-    clang-tools
+    clang-tools # includes clangd and clang-format
   ];
 in
 {

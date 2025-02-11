@@ -16,6 +16,8 @@ local config = {
     typescript = JsFormatters,
     typescriptreact = JsFormatters,
     nix = { 'nixfmt' },
+
+    cpp = { 'clang-format' },
   },
 }
 
