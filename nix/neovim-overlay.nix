@@ -86,6 +86,9 @@ let
 
     # Go
     gopls
+
+    # C++
+    clang-tools
   ];
 in
 {
