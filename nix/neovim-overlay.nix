@@ -48,11 +48,10 @@ let
 
     plenary-nvim
     nvim-web-devicons
-
   ];
 
   extraPackages = with pkgs; [
-    fzf # fzf-lua
+    ripgrep
 
     # For nix
     statix
