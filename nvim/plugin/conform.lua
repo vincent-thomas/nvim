@@ -10,14 +10,19 @@ local JsFormatters = {
 local config = {
   formatters_by_ft = {
     lua = { 'stylua' },
+
     rust = { 'rustfmt' },
+
     javascript = JsFormatters,
     javascriptreact = JsFormatters,
     typescript = JsFormatters,
     typescriptreact = JsFormatters,
+
     nix = { 'nixfmt' },
 
     cpp = { 'clang-format' },
+
+    sql = { 'sqlfluff' },
   },
 }
 

@@ -41,7 +41,7 @@ lspconfig.biome.setup {
 
 lspconfig.emmet_ls.setup {
   capabilities,
-  filetypes = { 'css', 'html', 'javascriptreact', 'typescriptreact' },
+  filetypes = { 'css', 'html', 'javascriptreact', 'typescriptreact', 'eruby' },
 }
 
 lspconfig.gopls.setup {
@@ -63,6 +63,5 @@ lspconfig.marksman.setup { capabilities }
 lspconfig.clangd.setup { capabilities }
 
 vim.api.nvim_create_autocmd('LspAttach', {
-  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
   callback = keybinds,
 })

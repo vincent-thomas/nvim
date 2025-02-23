@@ -88,6 +88,9 @@ let
 
     # C++
     clang-tools # includes clangd and clang-format
+
+    # sql
+    sqlfluff
   ];
 in
 {

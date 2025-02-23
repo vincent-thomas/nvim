@@ -1,4 +1,6 @@
-require('oil').setup {
+local oil = require('oil')
+
+oil.setup {
   default_file_explorer = true,
   columns = {
     'icon',
@@ -21,4 +23,5 @@ require('oil').setup {
     dotfiles = false,
   },
 }
+
 vim.keymap.set('n', '-', '<cmd>Oil<cr>')

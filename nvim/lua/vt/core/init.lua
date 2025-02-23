@@ -1,2 +1,2 @@
-require("vt.core.opts")
-require("vt.core.remap")
+require('vt.core.opts')
+require('vt.core.remap')
