@@ -69,7 +69,6 @@ let
     # Ts/js
     typescript-language-server
     prettierd
-    biome
 
     # Astro
     astro-language-server
