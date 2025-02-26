@@ -1,19 +1,19 @@
 local lualine = require('lualine')
 
 local colors = {
-  bg       = '#303446',
-  fg       = '#bbc2cf',
-  yellow   = '#e5c890',
-  cyan     = '#85c1dc',
+  bg = '#303446',
+  fg = '#bbc2cf',
+  yellow = '#e5c890',
+  cyan = '#85c1dc',
   darkblue = '#081633',
-  green    = '#a6d189',
-  orange   = '#ef9f76',
-  violet   = '#a9a1e1',
-  magenta  = '#c678dd',
-  blue     = '#8aadf4',
-  red      = '#e78284',
-  text     = "#c6d0f5",
-  peach    = "#ef9f76"
+  green = '#a6d189',
+  orange = '#ef9f76',
+  violet = '#a9a1e1',
+  magenta = '#c678dd',
+  blue = '#8aadf4',
+  red = '#e78284',
+  text = '#c6d0f5',
+  peach = '#ef9f76',
 }
 
 local mode_color = {
@@ -39,7 +39,6 @@ local mode_color = {
   t = colors.red,
 }
 
-
 local conditions = {
   buffer_not_empty = function()
     return vim.fn.empty(vim.fn.expand('%:t')) ~= 1
@@ -59,7 +58,7 @@ local config = {
     -- Disable sections and component separators
     component_separators = '',
     section_separators = '',
-    theme = "catppuccin"
+    theme = 'catppuccin',
   },
   sections = {
     -- these are to remove the defaults
@@ -116,7 +115,6 @@ ins_left {
 
 ins_left { 'progress', color = { fg = colors.fg, gui = 'bold' } }
 
-
 ins_left {
   'diagnostics',
   sources = { 'nvim_diagnostic' },
@@ -158,7 +156,7 @@ ins_right {
     removed = { fg = colors.red },
   },
   cond = conditions.hide_in_width,
-  padding = 2
+  padding = 2,
 }
 
 ins_right {

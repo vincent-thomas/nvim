@@ -33,7 +33,6 @@ Directory structure:
 ── nix # Nix configs
 ```
 
-
 Directory structure:
 
 ```sh
@@ -82,4 +81,3 @@ This means that modules in `nvim/lua` can be `require`d in `init.lua` and `nvim/
 Modules in `nvim/plugin/` are sourced automatically, as if they were plugins.
 Because they are added to the runtime path at the end of the resulting `init.lua`,
 Neovim sources them _after_ loading plugins.
-

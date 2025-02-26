@@ -22,6 +22,8 @@ local config = {
     cpp = { 'clang-format' },
 
     sql = { 'sqlfluff' },
+
+    _ = { 'trim_whitespace' },
   },
 }
 

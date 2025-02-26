@@ -51,13 +51,22 @@
 
     copilot-cmp.url = "github:zbirenbaum/copilot-cmp";
     copilot-cmp.flake = false;
+
+    treefmt-nix.url = "github:numtide/treefmt-nix";
+    treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
+
+    pre-commit-hooks.url = "github:cachix/git-hooks.nix";
   };
 
   outputs =
     inputs@{
+      self,
       nixpkgs,
       gen-luarc,
       flake-utils,
+
+      treefmt-nix,
+      pre-commit-hooks,
       ...
     }:
     let
@@ -69,6 +78,8 @@
       ];
 
       neovim-overlay = import ./nix/neovim-overlay.nix { inherit inputs; };
+
+      inherit (self) outputs;
     in
     flake-utils.lib.eachSystem supportedSystems (
       system:
@@ -81,8 +92,22 @@
             gen-luarc.overlays.default
           ];
         };
+        treefmtEval = treefmt-nix.lib.evalModule pkgs ./treefmt.nix;
       in
       {
+        formatter = treefmtEval.config.build.wrapper;
+
+        checks = {
+          formatting = treefmtEval.config.build.check self;
+
+          pre-commit-check = pre-commit-hooks.lib.${system}.run {
+            src = ./.;
+            hooks.treefmt = {
+              enable = true;
+              package = outputs.formatter.${system};
+            };
+          };
+        };
         packages = rec {
           default = nvim;
           nvim = pkgs.vt-nvim;
