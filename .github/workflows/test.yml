@@ -2,7 +2,6 @@ name: CI
 
 on:
   push:
-  pull_request:
 
 jobs:
   check:
@@ -13,7 +12,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: DeterminateSystems/nix-installer-action@main
-      - uses: DeterminateSystems/magic-nix-cache-action@main
       - uses: DeterminateSystems/flake-checker-action@main
+
+      - name: Run `nix flake check`
+        run: nix flake check
+
+      - uses: cachix/cachix-action@v14
+        with:
+          name: vt-nvim
+          authToken: '${{ secrets.CACHIX_TOKEN }}'
       - name: Run `nix build`
         run: nix build .
