@@ -23,6 +23,8 @@ local config = {
 
     sql = { 'sqlfluff' },
 
+    html = { 'prettierd', 'prettier', stop_after_first = true },
+
     _ = { 'trim_whitespace' },
   },
 }
