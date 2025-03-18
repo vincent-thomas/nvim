@@ -33,7 +33,7 @@ let
     (mkNvimPlugin inputs.markdown "render-markdown")
 
     (mkNvimPlugin inputs.copilot-lua "copilot")
-    # (mkNvimPlugin inputs.copilot-cmp "copilot_cmp")
+    (mkNvimPlugin inputs.copilot-cmp "copilot_cmp")
 
     nvim-treesitter.withAllGrammars
     nvim-cmp # https://github.com/hrsh7th/nvim-cmp
