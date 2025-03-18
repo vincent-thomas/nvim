@@ -49,6 +49,13 @@ lspconfig.lua_ls.setup {
 }
 lspconfig.rust_analyzer.setup {
   capabilities,
+  settings = {
+    ['rust-analyzer'] = {
+      cargo = {
+        allFeatures = true,
+      },
+    },
+  },
 }
 
 lspconfig.terraformls.setup { capabilities }
