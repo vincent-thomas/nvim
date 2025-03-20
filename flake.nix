@@ -15,6 +15,16 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
 
+    gen-luarc.url = "github:mrcjkb/nix-gen-luarc-json";
+    gen-luarc.inputs.nixpkgs.follows = "nixpkgs";
+
+    treefmt-nix.url = "github:numtide/treefmt-nix";
+    treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
+
+    pre-commit-hooks.url = "github:cachix/git-hooks.nix";
+
+    # Plugins
+
     nvim-lspconfig.url = "github:neovim/nvim-lspconfig";
     nvim-lspconfig.flake = false;
 
@@ -24,8 +34,8 @@
     blink-cmp.url = "github:Saghen/blink.cmp";
     blink-cmp.flake = false;
 
-    gen-luarc.url = "github:mrcjkb/nix-gen-luarc-json";
-    gen-luarc.inputs.nixpkgs.follows = "nixpkgs";
+    gitsigns.url = "github:lewis6991/gitsigns.nvim";
+    gitsigns.flake = false;
 
     oil.url = "github:stevearc/oil.nvim";
     oil.flake = false;
@@ -36,13 +46,8 @@
     fidget.url = "github:j-hui/fidget.nvim";
     fidget.flake = false;
 
-    markdown.url = "github:MeanderingProgrammer/render-markdown.nvim";
-    markdown.flake = false;
-
-    treefmt-nix.url = "github:numtide/treefmt-nix";
-    treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
-
-    pre-commit-hooks.url = "github:cachix/git-hooks.nix";
+    plenary.url = "github:nvim-lua/plenary.nvim";
+    plenary.flake = false;
   };
 
   outputs =
@@ -101,13 +106,7 @@
         };
 
         devShell = pkgs.mkShell {
-          shellHook =
-            let
-              luarc = pkgs.nvim-luarc-json;
-            in
-            ''
-              ln -fs ${luarc} .luarc.json
-            '';
+          shellHook = "ln -fs ${pkgs.nvim-luarc-json} .luarc.json";
 
           buildInputs = [ pkgs.vt-nvim ];
         };

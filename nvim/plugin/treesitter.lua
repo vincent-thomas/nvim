@@ -1,6 +1,6 @@
 local config = {
   highlight = {
-    enable = true,
+    enable = false,
     additional_vim_regex_highlighting = false,
     enable_autocmd = false,
   },

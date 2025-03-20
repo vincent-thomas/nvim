@@ -6,7 +6,7 @@ local JsFormatters = {
   stop_after_first = true,
 }
 
-local config = {
+conform.setup {
   formatters_by_ft = {
     lua = { 'stylua' },
 
@@ -28,8 +28,6 @@ local config = {
     _ = { 'trim_whitespace' },
   },
 }
-
-conform.setup(config)
 
 vim.api.nvim_create_autocmd('BufWritePre', {
   pattern = '*',

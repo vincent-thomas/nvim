@@ -206,6 +206,22 @@
         "type": "github"
       }
     },
+    "gitsigns": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1742140868,
+        "narHash": "sha256-qWusbKY+3d1dkW5oLYDyfSLdt1qFlJdDeXgFWqQ4hUI=",
+        "owner": "lewis6991",
+        "repo": "gitsigns.nvim",
+        "rev": "7010000889bfb6c26065e0b0f7f1e6aa9163edd9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lewis6991",
+        "repo": "gitsigns.nvim",
+        "type": "github"
+      }
+    },
     "luvit-meta": {
       "flake": false,
       "locked": {
@@ -219,22 +235,6 @@
       "original": {
         "owner": "Bilal2453",
         "repo": "luvit-meta",
-        "type": "github"
-      }
-    },
-    "markdown": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1742324924,
-        "narHash": "sha256-nXTR7J4hU/ReNKZuFMUQk4sPxHgobdUId2O0+d2e2bU=",
-        "owner": "MeanderingProgrammer",
-        "repo": "render-markdown.nvim",
-        "rev": "125258ac5bccd21651505d78dbd6120906243749",
-        "type": "github"
-      },
-      "original": {
-        "owner": "MeanderingProgrammer",
-        "repo": "render-markdown.nvim",
         "type": "github"
       }
     },
@@ -346,6 +346,22 @@
         "type": "github"
       }
     },
+    "plenary": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1739311008,
+        "narHash": "sha256-8FV5RjF7QbDmQOQynpK7uRKONKbPRYbOPugf9ZxNvUs=",
+        "owner": "nvim-lua",
+        "repo": "plenary.nvim",
+        "rev": "857c5ac632080dba10aae49dba902ce3abf91b35",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-lua",
+        "repo": "plenary.nvim",
+        "type": "github"
+      }
+    },
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": "flake-compat_2",
@@ -373,11 +389,12 @@
         "fidget": "fidget",
         "flake-utils": "flake-utils",
         "gen-luarc": "gen-luarc",
-        "markdown": "markdown",
+        "gitsigns": "gitsigns",
         "mini-nvim": "mini-nvim",
         "nixpkgs": "nixpkgs",
         "nvim-lspconfig": "nvim-lspconfig",
         "oil": "oil",
+        "plenary": "plenary",
         "pre-commit-hooks": "pre-commit-hooks",
         "treefmt-nix": "treefmt-nix"
       }

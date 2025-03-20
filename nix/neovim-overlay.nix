@@ -21,37 +21,18 @@ let
 
   all-plugins = with pkgs.vimPlugins; [
     (mkNvimPlugin inputs.nvim-lspconfig "nvim-lspconfig")
-    (mkNvimPlugin inputs.conform "conform")
-    # (mkNvimPlugin inputs.lualine "lualine")
-
-    (mkNvimPlugin inputs.oil "oil")
-    (mkNvimPlugin inputs.mini-nvim "mini")
-
-    (mkNvimPlugin inputs.fidget "fidget")
-    # (mkNvimPlugin inputs.luasnip "luasnip")
-    (mkNvimPlugin inputs.markdown "render-markdown")
-
     ((mkNvimPlugin inputs.blink-cmp "blink.cmp").overrideAttrs {
       doCheck = false;
     })
-    # (mkNvimPlugin inputs.copilot-lua "copilot")
-    # ((mkNvimPlugin inputs.copilot-cmp "copilot_cmp").overrideAttrs {
-    #   doCheck = false;
-    # })
-
+    (mkNvimPlugin inputs.conform "conform")
+    (mkNvimPlugin inputs.oil "oil")
+    (mkNvimPlugin inputs.mini-nvim "mini")
+    (mkNvimPlugin inputs.fidget "fidget")
+    (mkNvimPlugin inputs.gitsigns "gitsigns")
     nvim-treesitter.withAllGrammars
-    # nvim-cmp # https://github.com/hrsh7th/nvim-cmp
-    # cmp-nvim-lsp # LSP as completion source | https://github.com/hrsh7th/cmp-nvim-lsp/
-    # cmp-buffer
-    # cmp-path
-    # cmp-nvim-lua
-
-    gitsigns-nvim
-
-    # catppuccin-nvim
-
-    plenary-nvim
-    # nvim-web-devicons
+    ((mkNvimPlugin inputs.plenary "plenary").overrideAttrs {
+      doCheck = false;
+    })
   ];
 
   extraPackages = with pkgs; [
