@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "blink-cmp": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1742419285,
+        "narHash": "sha256-8IGFoLOKZ03g5Vbfc6OdERpvZ4DcLTlfffjdWvN4sLM=",
+        "owner": "Saghen",
+        "repo": "blink.cmp",
+        "rev": "5b1d3498b13c9321c4ed862a217889a22fc3e565",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Saghen",
+        "repo": "blink.cmp",
+        "type": "github"
+      }
+    },
     "conform": {
       "flake": false,
       "locked": {
@@ -13,38 +29,6 @@
       "original": {
         "owner": "stevearc",
         "repo": "conform.nvim",
-        "type": "github"
-      }
-    },
-    "copilot-cmp": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1733947099,
-        "narHash": "sha256-erRL8bY/zuwuCZfttw+avTrFV7pjv2H6v73NzY2bymM=",
-        "owner": "zbirenbaum",
-        "repo": "copilot-cmp",
-        "rev": "15fc12af3d0109fa76b60b5cffa1373697e261d1",
-        "type": "github"
-      },
-      "original": {
-        "owner": "zbirenbaum",
-        "repo": "copilot-cmp",
-        "type": "github"
-      }
-    },
-    "copilot-lua": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1739230958,
-        "narHash": "sha256-632UIbG1jwam+tug5+jODkT509+uBfJgUN21C3ppnEo=",
-        "owner": "zbirenbaum",
-        "repo": "copilot.lua",
-        "rev": "30321e33b03cb924fdcd6a806a0dc6fa0b0eafb9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "zbirenbaum",
-        "repo": "copilot.lua",
         "type": "github"
       }
     },
@@ -222,38 +206,6 @@
         "type": "github"
       }
     },
-    "lualine": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1742039150,
-        "narHash": "sha256-qYKykdCcXd+OHmK3WvsUCbn0zDKTQDj49VYsQ8iVvgs=",
-        "owner": "nvim-lualine",
-        "repo": "lualine.nvim",
-        "rev": "b8b60c7f1d0d95ad74ee215b2291280b30482476",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nvim-lualine",
-        "repo": "lualine.nvim",
-        "type": "github"
-      }
-    },
-    "luasnip": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1736009707,
-        "narHash": "sha256-3ecm5SDTcSOh256xSQPHhddQfMpepiEIpv58fHXrVg0=",
-        "owner": "L3MON4D3",
-        "repo": "LuaSnip",
-        "rev": "c9b9a22904c97d0eb69ccb9bab76037838326817",
-        "type": "github"
-      },
-      "original": {
-        "owner": "L3MON4D3",
-        "repo": "LuaSnip",
-        "type": "github"
-      }
-    },
     "luvit-meta": {
       "flake": false,
       "locked": {
@@ -286,35 +238,19 @@
         "type": "github"
       }
     },
-    "mini-extra": {
+    "mini-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1739557286,
-        "narHash": "sha256-xldDCsUFUyHKk4dWDEj21H3kx7lxZORxsg2lOX2kzW4=",
+        "lastModified": 1742153021,
+        "narHash": "sha256-M9OPgIUkeg0bhRHFALditrLMfiP8BI/DuPimzAX9T5c=",
         "owner": "echasnovski",
-        "repo": "mini.extra",
-        "rev": "7725a82b4d9c0acdc370385b9c04bb0791017230",
+        "repo": "mini.nvim",
+        "rev": "88f18a7d018d8bb4d32f6be4c712134a10e826d3",
         "type": "github"
       },
       "original": {
         "owner": "echasnovski",
-        "repo": "mini.extra",
-        "type": "github"
-      }
-    },
-    "mini-pick": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1740838433,
-        "narHash": "sha256-HkvriVs4y8Q/Y7sqI+coJdRdm7NarlBK/wr2b6o/Sus=",
-        "owner": "echasnovski",
-        "repo": "mini.pick",
-        "rev": "12ea14f8e285d1bcc909116685fdbb129a89d546",
-        "type": "github"
-      },
-      "original": {
-        "owner": "echasnovski",
-        "repo": "mini.pick",
+        "repo": "mini.nvim",
         "type": "github"
       }
     },
@@ -432,17 +368,13 @@
     },
     "root": {
       "inputs": {
+        "blink-cmp": "blink-cmp",
         "conform": "conform",
-        "copilot-cmp": "copilot-cmp",
-        "copilot-lua": "copilot-lua",
         "fidget": "fidget",
         "flake-utils": "flake-utils",
         "gen-luarc": "gen-luarc",
-        "lualine": "lualine",
-        "luasnip": "luasnip",
         "markdown": "markdown",
-        "mini-extra": "mini-extra",
-        "mini-pick": "mini-pick",
+        "mini-nvim": "mini-nvim",
         "nixpkgs": "nixpkgs",
         "nvim-lspconfig": "nvim-lspconfig",
         "oil": "oil",

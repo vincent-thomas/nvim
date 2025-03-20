@@ -1,5 +1,4 @@
 {
-  description = "Neovim derivation";
   nixConfig = {
     substituters = [
       "https://nix-community.cachix.org"
@@ -22,8 +21,8 @@
     conform.url = "github:stevearc/conform.nvim";
     conform.flake = false;
 
-    lualine.url = "github:nvim-lualine/lualine.nvim";
-    lualine.flake = false;
+    blink-cmp.url = "github:Saghen/blink.cmp";
+    blink-cmp.flake = false;
 
     gen-luarc.url = "github:mrcjkb/nix-gen-luarc-json";
     gen-luarc.inputs.nixpkgs.follows = "nixpkgs";
@@ -31,26 +30,14 @@
     oil.url = "github:stevearc/oil.nvim";
     oil.flake = false;
 
-    mini-pick.url = "github:echasnovski/mini.pick";
-    mini-pick.flake = false;
-
-    mini-extra.url = "github:echasnovski/mini.extra";
-    mini-extra.flake = false;
+    mini-nvim.url = "github:echasnovski/mini.nvim";
+    mini-nvim.flake = false;
 
     fidget.url = "github:j-hui/fidget.nvim";
     fidget.flake = false;
 
-    luasnip.url = "github:L3MON4D3/LuaSnip";
-    luasnip.flake = false;
-
     markdown.url = "github:MeanderingProgrammer/render-markdown.nvim";
     markdown.flake = false;
-
-    copilot-lua.url = "github:zbirenbaum/copilot.lua";
-    copilot-lua.flake = false;
-
-    copilot-cmp.url = "github:zbirenbaum/copilot-cmp";
-    copilot-cmp.flake = false;
 
     treefmt-nix.url = "github:numtide/treefmt-nix";
     treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
