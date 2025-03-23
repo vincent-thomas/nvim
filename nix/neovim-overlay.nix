@@ -24,6 +24,9 @@ let
     ((mkNvimPlugin inputs.blink-cmp "blink.cmp").overrideAttrs {
       doCheck = false;
     })
+    ((mkNvimPlugin inputs.harpoon "harpoon").overrideAttrs {
+      doCheck = false;
+    })
     (mkNvimPlugin inputs.conform "conform")
     (mkNvimPlugin inputs.oil "oil")
     (mkNvimPlugin inputs.mini-nvim "mini")

@@ -24,24 +24,26 @@
     pre-commit-hooks.url = "github:cachix/git-hooks.nix";
 
     # Plugins
-
     nvim-lspconfig.url = "github:neovim/nvim-lspconfig";
     nvim-lspconfig.flake = false;
 
-    conform.url = "github:stevearc/conform.nvim";
-    conform.flake = false;
+    mini-nvim.url = "github:echasnovski/mini.nvim";
+    mini-nvim.flake = false;
 
     blink-cmp.url = "github:Saghen/blink.cmp";
     blink-cmp.flake = false;
+
+    harpoon.url = "github:ThePrimeagen/harpoon/harpoon2";
+    harpoon.flake = false;
+
+    conform.url = "github:stevearc/conform.nvim";
+    conform.flake = false;
 
     gitsigns.url = "github:lewis6991/gitsigns.nvim";
     gitsigns.flake = false;
 
     oil.url = "github:stevearc/oil.nvim";
     oil.flake = false;
-
-    mini-nvim.url = "github:echasnovski/mini.nvim";
-    mini-nvim.flake = false;
 
     fidget.url = "github:j-hui/fidget.nvim";
     fidget.flake = false;

@@ -222,6 +222,23 @@
         "type": "github"
       }
     },
+    "harpoon": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1739222527,
+        "narHash": "sha256-L7FvOV6KvD58BnY3no5IudiKTdgkGqhpS85RoSxtl7U=",
+        "owner": "ThePrimeagen",
+        "repo": "harpoon",
+        "rev": "ed1f853847ffd04b2b61c314865665e1dadf22c7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ThePrimeagen",
+        "ref": "harpoon2",
+        "repo": "harpoon",
+        "type": "github"
+      }
+    },
     "luvit-meta": {
       "flake": false,
       "locked": {
@@ -390,6 +407,7 @@
         "flake-utils": "flake-utils",
         "gen-luarc": "gen-luarc",
         "gitsigns": "gitsigns",
+        "harpoon": "harpoon",
         "mini-nvim": "mini-nvim",
         "nixpkgs": "nixpkgs",
         "nvim-lspconfig": "nvim-lspconfig",

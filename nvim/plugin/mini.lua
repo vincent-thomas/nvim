@@ -1,3 +1,7 @@
+require('mini.misc').setup {
+  make_global = { 'put_text' },
+}
+
 require('mini.statusline').setup()
 require('mini.icons').setup()
 require('mini.hipatterns').setup()

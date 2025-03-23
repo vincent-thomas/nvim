@@ -40,7 +40,6 @@ vim.opt.shortmess = vim.opt.shortmess
 
 vim.keymap.set('', '<leader>-', vim.cmd.split)
 vim.keymap.set('', '<leader>=', vim.cmd.vsplit)
-vim.keymap.set('', '<leader>w', vim.cmd.w)
 
 ---- Remap ----
 
@@ -52,4 +51,6 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz')
 
 vim.keymap.set('n', '<leader>y', '"+y')
 
-vim.keymap.set('n', '<C-c>', '<Esc>')
+vim.keymap.set('n', '<leader>t', vim.cmd.terminal)
+vim.keymap.set('n', '-', vim.cmd.Ex)
+vim.g.netrw_banner = 0
