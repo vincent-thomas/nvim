@@ -42,9 +42,6 @@
     gitsigns.url = "github:lewis6991/gitsigns.nvim";
     gitsigns.flake = false;
 
-    oil.url = "github:stevearc/oil.nvim";
-    oil.flake = false;
-
     fidget.url = "github:j-hui/fidget.nvim";
     fidget.flake = false;
 

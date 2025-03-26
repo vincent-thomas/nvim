@@ -347,22 +347,6 @@
         "type": "github"
       }
     },
-    "oil": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1742514024,
-        "narHash": "sha256-JpYlDSoWXscz1WM9J+rUU/8XcMie3RGn7IlCH0JEV44=",
-        "owner": "stevearc",
-        "repo": "oil.nvim",
-        "rev": "ab887d926c2665a708fbe9e6c4654042cc5f4c60",
-        "type": "github"
-      },
-      "original": {
-        "owner": "stevearc",
-        "repo": "oil.nvim",
-        "type": "github"
-      }
-    },
     "plenary": {
       "flake": false,
       "locked": {
@@ -411,7 +395,6 @@
         "mini-nvim": "mini-nvim",
         "nixpkgs": "nixpkgs",
         "nvim-lspconfig": "nvim-lspconfig",
-        "oil": "oil",
         "plenary": "plenary",
         "pre-commit-hooks": "pre-commit-hooks",
         "treefmt-nix": "treefmt-nix"

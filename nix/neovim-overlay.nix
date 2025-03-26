@@ -28,7 +28,6 @@ let
       doCheck = false;
     })
     (mkNvimPlugin inputs.conform "conform")
-    (mkNvimPlugin inputs.oil "oil")
     (mkNvimPlugin inputs.mini-nvim "mini")
     (mkNvimPlugin inputs.fidget "fidget")
     (mkNvimPlugin inputs.gitsigns "gitsigns")
