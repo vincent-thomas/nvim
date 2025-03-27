@@ -6,7 +6,7 @@ require('mini.statusline').setup()
 require('mini.icons').setup()
 require('mini.hipatterns').setup()
 require('mini.base16').setup {
-  palette = require('vt.theme'),
+  palette = require('vt.theme').catpuccinMocha,
 }
 
 local pick = require('mini.pick')
