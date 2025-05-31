@@ -47,6 +47,9 @@
 
     plenary.url = "github:nvim-lua/plenary.nvim";
     plenary.flake = false;
+
+    minuet.url = "github:milanglacier/minuet-ai.nvim";
+    minuet.flake = false;
   };
 
   outputs =

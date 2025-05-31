@@ -25,6 +25,8 @@ vim.opt.nu = true
 vim.opt.rnu = true
 -- System clipboard
 vim.opt.clipboard = 'unnamedplus'
+
+--
 -- Removes default '-- INSERT --', i have my bar
 vim.opt.showmode = false
 

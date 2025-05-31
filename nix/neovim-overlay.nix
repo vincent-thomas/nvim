@@ -31,6 +31,9 @@ let
     (mkNvimPlugin inputs.mini-nvim "mini")
     (mkNvimPlugin inputs.fidget "fidget")
     (mkNvimPlugin inputs.gitsigns "gitsigns")
+    ((mkNvimPlugin inputs.minuet "minuet").overrideAttrs {
+      doCheck = false;
+    })
     nvim-treesitter.withAllGrammars
     ((mkNvimPlugin inputs.plenary "plenary").overrideAttrs {
       doCheck = false;
@@ -55,7 +58,7 @@ let
 
     # Ts/js
     typescript-language-server
-    prettierd
+    # prettierd
 
     # Astro
     astro-language-server
