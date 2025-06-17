@@ -30,6 +30,7 @@ let
     (mkNvimPlugin inputs.conform "conform")
     (mkNvimPlugin inputs.mini-nvim "mini")
     (mkNvimPlugin inputs.fidget "fidget")
+    (mkNvimPlugin inputs.oil "oil")
     (mkNvimPlugin inputs.gitsigns "gitsigns")
     ((mkNvimPlugin inputs.minuet "minuet").overrideAttrs {
       doCheck = false;

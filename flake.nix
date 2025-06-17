@@ -50,6 +50,9 @@
 
     minuet.url = "github:milanglacier/minuet-ai.nvim";
     minuet.flake = false;
+
+    oil.url = "github:stevearc/oil.nvim";
+    oil.flake = false;
   };
 
   outputs =
