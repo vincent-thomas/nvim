@@ -30,6 +30,9 @@
     mini-nvim.url = "github:echasnovski/mini.nvim";
     mini-nvim.flake = false;
 
+    catpuccin.url = "github:catppuccin/nvim";
+    catpuccin.flake = false;
+
     blink-cmp.url = "github:Saghen/blink.cmp";
     blink-cmp.flake = false;
 

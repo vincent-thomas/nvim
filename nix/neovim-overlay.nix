@@ -32,9 +32,7 @@ let
     (mkNvimPlugin inputs.fidget "fidget")
     (mkNvimPlugin inputs.oil "oil")
     (mkNvimPlugin inputs.gitsigns "gitsigns")
-    ((mkNvimPlugin inputs.minuet "minuet").overrideAttrs {
-      doCheck = false;
-    })
+    ((mkNvimPlugin inputs.catpuccin "catpuccin").overrideAttrs { doCheck = false; })
     nvim-treesitter.withAllGrammars
     ((mkNvimPlugin inputs.plenary "plenary").overrideAttrs {
       doCheck = false;
