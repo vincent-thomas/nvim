@@ -287,22 +287,6 @@
         "type": "github"
       }
     },
-    "minuet": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1750311807,
-        "narHash": "sha256-hqZp3ImJ4oTCGch7U+JwJsZy4SMeQiicW8PCJiu4yOg=",
-        "owner": "milanglacier",
-        "repo": "minuet-ai.nvim",
-        "rev": "a7337d07bb4f50cd6c92dd62c15c85d6b141b8ad",
-        "type": "github"
-      },
-      "original": {
-        "owner": "milanglacier",
-        "repo": "minuet-ai.nvim",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1751984180,
@@ -442,7 +426,6 @@
         "gitsigns": "gitsigns",
         "harpoon": "harpoon",
         "mini-nvim": "mini-nvim",
-        "minuet": "minuet",
         "nixpkgs": "nixpkgs",
         "nvim-lspconfig": "nvim-lspconfig",
         "oil": "oil",
