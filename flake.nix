@@ -36,9 +36,6 @@
     blink-cmp.url = "github:Saghen/blink.cmp";
     blink-cmp.flake = false;
 
-    harpoon.url = "github:ThePrimeagen/harpoon/harpoon2";
-    harpoon.flake = false;
-
     conform.url = "github:stevearc/conform.nvim";
     conform.flake = false;
 
@@ -53,6 +50,9 @@
 
     oil.url = "github:stevearc/oil.nvim";
     oil.flake = false;
+
+    leap.url = "github:ggandor/leap.nvim";
+    leap.flake = false;
   };
 
   outputs =

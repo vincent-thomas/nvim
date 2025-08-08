@@ -24,14 +24,18 @@ let
     ((mkNvimPlugin inputs.blink-cmp "blink.cmp").overrideAttrs {
       doCheck = false;
     })
-    ((mkNvimPlugin inputs.harpoon "harpoon").overrideAttrs {
-      doCheck = false;
-    })
+    # ((mkNvimPlugin inputs.harpoon "harpoon").overrideAttrs {
+    #   doCheck = false;
+    # })
     (mkNvimPlugin inputs.conform "conform")
     (mkNvimPlugin inputs.mini-nvim "mini")
     (mkNvimPlugin inputs.fidget "fidget")
     (mkNvimPlugin inputs.oil "oil")
     (mkNvimPlugin inputs.gitsigns "gitsigns")
+    (mkNvimPlugin inputs.leap "leap")
+    # ((mkNvimPlugin inputs.leap "leap").overrideAttrs {
+    #   doCheck = false;
+    # })
     ((mkNvimPlugin inputs.catpuccin "catpuccin").overrideAttrs { doCheck = false; })
     nvim-treesitter.withAllGrammars
     ((mkNvimPlugin inputs.plenary "plenary").overrideAttrs {

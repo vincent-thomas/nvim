@@ -238,20 +238,19 @@
         "type": "github"
       }
     },
-    "harpoon": {
+    "leap": {
       "flake": false,
       "locked": {
-        "lastModified": 1739222527,
-        "narHash": "sha256-L7FvOV6KvD58BnY3no5IudiKTdgkGqhpS85RoSxtl7U=",
-        "owner": "ThePrimeagen",
-        "repo": "harpoon",
-        "rev": "ed1f853847ffd04b2b61c314865665e1dadf22c7",
+        "lastModified": 1754186439,
+        "narHash": "sha256-la5Mq0cqWNZ3cV/LL/ip04E0BF0Hw84pdGbzLvG6gC8=",
+        "owner": "ggandor",
+        "repo": "leap.nvim",
+        "rev": "02bf52e49c72cc5dabb53ec9494d10d304f0b2c9",
         "type": "github"
       },
       "original": {
-        "owner": "ThePrimeagen",
-        "ref": "harpoon2",
-        "repo": "harpoon",
+        "owner": "ggandor",
+        "repo": "leap.nvim",
         "type": "github"
       }
     },
@@ -424,7 +423,7 @@
         "flake-utils": "flake-utils",
         "gen-luarc": "gen-luarc",
         "gitsigns": "gitsigns",
-        "harpoon": "harpoon",
+        "leap": "leap",
         "mini-nvim": "mini-nvim",
         "nixpkgs": "nixpkgs",
         "nvim-lspconfig": "nvim-lspconfig",
