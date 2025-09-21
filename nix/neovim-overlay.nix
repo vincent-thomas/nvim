@@ -38,9 +38,9 @@ let
     # })
     ((mkNvimPlugin inputs.catpuccin "catpuccin").overrideAttrs { doCheck = false; })
     nvim-treesitter.withAllGrammars
-    ((mkNvimPlugin inputs.plenary "plenary").overrideAttrs {
-      doCheck = false;
-    })
+    # ((mkNvimPlugin inputs.plenary "plenary").overrideAttrs {
+    #   doCheck = false;
+    # })
   ];
 
   extraPackages = with pkgs; [

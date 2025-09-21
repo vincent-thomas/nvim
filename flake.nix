@@ -45,9 +45,9 @@
     fidget.url = "github:j-hui/fidget.nvim";
     fidget.flake = false;
 
-    plenary.url = "github:nvim-lua/plenary.nvim";
-    plenary.flake = false;
-
+    # plenary.url = "github:nvim-lua/plenary.nvim";
+    # plenary.flake = false;
+    #
     oil.url = "github:stevearc/oil.nvim";
     oil.flake = false;
 
