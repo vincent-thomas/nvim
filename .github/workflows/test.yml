@@ -14,12 +14,14 @@ jobs:
       - uses: DeterminateSystems/nix-installer-action@main
       - uses: DeterminateSystems/flake-checker-action@main
 
-      - name: Run `nix flake check`
-        run: nix flake check --accept-flake-config
 
       - uses: cachix/cachix-action@v14
         with:
           name: vt-nvim
           authToken: '${{ secrets.CACHIX_TOKEN }}'
+
+      - name: Run `nix flake check`
+        run: nix flake check --accept-flake-config
+
       - name: Run `nix build`
         run: nix build . --accept-flake-config
