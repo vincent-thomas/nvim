@@ -194,10 +194,6 @@ end)
 --- BLINK
 local blink = require('blink.cmp')
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-
-require('vt.lsp_setup').setup_lsp(capabilities)
-
 blink.setup {
   sources = {
     default = { 'lsp', 'path', 'buffer' },
@@ -222,3 +218,21 @@ blink.setup {
 }
 
 require('leap').set_default_mappings()
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(ev)
+    local opts = { buffer = ev.buf, silent = true }
+    vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, opts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.declaration, opts)
+    vim.keymap.set('n', 'gD', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', '<C-a>', vim.lsp.buf.code_action, opts)
+  end,
+})
+
+vim.lsp.enable('ts_ls')
+vim.lsp.enable('dockerls')
+vim.lsp.enable('nixd')
+vim.lsp.enable('statix')
+vim.lsp.enable('emmet_ls')
+vim.lsp.enable('lua_ls')
+vim.lsp.enable('rust_analyzer')
