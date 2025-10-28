@@ -26,30 +26,6 @@ require('nvim-treesitter.configs').setup(config)
 
 --- OIL
 
-local oil = require('oil')
---
-oil.setup {
-  default_file_explorer = true,
-  columns = {
-    'icon',
-  },
-  use_default_keymaps = false,
-  keymaps = {
-    ['<CR>'] = 'actions.select',
-    ['<C-c>'] = 'actions.close',
-    ['<C-l>'] = 'actions.refresh',
-    ['-'] = 'actions.parent',
-    ['_'] = 'actions.open_cwd',
-    ['.'] = 'actions.toggle_hidden',
-  },
-  preview_split = 'left',
-  filters = {
-    dotfiles = false,
-  },
-}
-
-vim.keymap.set('n', '-', vim.cmd.Oil)
-
 --- GITSIGNS
 local gitsigns = require('gitsigns')
 
@@ -231,8 +207,5 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 vim.lsp.enable('ts_ls')
 vim.lsp.enable('dockerls')
-vim.lsp.enable('nixd')
-vim.lsp.enable('statix')
-vim.lsp.enable('emmet_ls')
 vim.lsp.enable('lua_ls')
 vim.lsp.enable('rust_analyzer')
