@@ -1,2 +1,2 @@
 require('vt.opts')
-require('vt.plugins')
+-- require('vt.plugins')

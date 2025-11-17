@@ -22,7 +22,7 @@ vim.g.mapleader = ' '
 vim.opt.colorcolumn = '80'
 vim.opt.termguicolors = true
 vim.opt.nu = true
-vim.opt.rnu = true
+vim.opt.rnu = false
 -- System clipboard
 vim.opt.clipboard = 'unnamedplus'
 

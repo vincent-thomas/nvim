@@ -43,13 +43,35 @@ return {
         end,
       })
 
-      vim.lsp.enable('ts_ls')
       vim.lsp.enable('dockerls')
-      vim.lsp.enable('nixd')
-      vim.lsp.enable('statix')
-      vim.lsp.enable('emmet_ls')
       vim.lsp.enable('lua_ls')
       vim.lsp.enable('rust_analyzer')
+      --
+      -- -- Optional: Set up keybindings and inlay hints on attach
+      -- vim.api.nvim_create_autocmd('LspAttach', {
+      --   callback = function(args)
+      --     local client = vim.lsp.get_client_by_id(args.data.client_id)
+      --     if client.name == 'rust_analyzer' then
+      --       local bufnr = args.buf
+      --
+      --       -- Enable inlay hints
+      --       vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+      --
+      --       -- Keybindings
+      --       vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = bufnr })
+      --       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = bufnr })
+      --       vim.keymap.set('n', 'gr', vim.lsp.buf.references, { buffer = bufnr })
+      --       vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { buffer = bufnr })
+      --       vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { buffer = bufnr })
+      --
+      --       -- Rust-specific: expandMacro, joinLines, etc.
+      --       vim.keymap.set('n', '<leader>em', function()
+      --         vim.cmd.RustLsp('expandMacro')
+      --       end, { buffer = bufnr, desc = 'Expand macro' })
+      --     end
+      --   end,
+      -- })
+      -- vim.lsp.enable('rust_analyzer')
     end,
   },
   {
