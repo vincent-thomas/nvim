@@ -21,9 +21,10 @@ let
 
   all-plugins = with pkgs.vimPlugins; [
     (mkNvimPlugin inputs.nvim-lspconfig "nvim-lspconfig")
-    ((mkNvimPlugin inputs.blink-cmp "blink.cmp").overrideAttrs {
+    ((mkNvimPlugin inputs.nvim-cmp "cmp").overrideAttrs {
       doCheck = false;
     })
+    (mkNvimPlugin inputs.cmp-nvim-lsp "cmp-nvim-lsp")
     (mkNvimPlugin inputs.conform "conform")
     (mkNvimPlugin inputs.mini-nvim "mini")
     (mkNvimPlugin inputs.fidget "fidget")
@@ -54,17 +55,11 @@ let
     typescript-language-server
     # prettierd
 
-    # # Astro
-    # astro-language-server
-
     # Markdown
     marksman
 
     # Emmet
     emmet-ls
-
-    # terraform-ls
-    # tflint
 
     # # Go
     # gopls
@@ -73,11 +68,13 @@ let
     # clang-tools # includes clangd and clang-format
   ];
 in
-{
+rec {
   vt-nvim = mkNeovim {
     plugins = all-plugins;
     inherit extraPackages;
   };
+
+  default = vt-nvim;
 
   nvim-luarc-json = final.mk-luarc-json {
     plugins = all-plugins;

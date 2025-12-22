@@ -33,8 +33,11 @@
     catpuccin.url = "github:catppuccin/nvim";
     catpuccin.flake = false;
 
-    blink-cmp.url = "github:Saghen/blink.cmp";
-    blink-cmp.flake = false;
+    nvim-cmp.url = "github:hrsh7th/nvim-cmp";
+    nvim-cmp.flake = false;
+
+    cmp-nvim-lsp.url = "github:hrsh7th/cmp-nvim-lsp";
+    cmp-nvim-lsp.flake = false;
 
     conform.url = "github:stevearc/conform.nvim";
     conform.flake = false;
