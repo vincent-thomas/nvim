@@ -18,9 +18,6 @@
     gen-luarc.url = "github:mrcjkb/nix-gen-luarc-json";
     gen-luarc.inputs.nixpkgs.follows = "nixpkgs";
 
-    treefmt-nix.url = "github:numtide/treefmt-nix";
-    treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
-
     pre-commit-hooks.url = "github:cachix/git-hooks.nix";
 
     # Plugins
@@ -62,7 +59,6 @@
       gen-luarc,
       flake-utils,
 
-      treefmt-nix,
       pre-commit-hooks,
       ...
     }:
@@ -89,22 +85,8 @@
             gen-luarc.overlays.default
           ];
         };
-        treefmtEval = treefmt-nix.lib.evalModule pkgs ./treefmt.nix;
       in
       {
-        formatter = treefmtEval.config.build.wrapper;
-
-        checks = {
-          formatting = treefmtEval.config.build.check self;
-
-          pre-commit-check = pre-commit-hooks.lib.${system}.run {
-            src = ./.;
-            hooks.treefmt = {
-              enable = true;
-              package = outputs.formatter.${system};
-            };
-          };
-        };
         packages = rec {
           default = nvim;
           nvim = pkgs.vt-nvim;
@@ -112,7 +94,6 @@
 
         devShell = pkgs.mkShell {
           shellHook = "ln -fs ${pkgs.nvim-luarc-json} .luarc.json";
-
           buildInputs = [ pkgs.vt-nvim ];
         };
       }
