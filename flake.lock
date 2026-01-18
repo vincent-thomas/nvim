@@ -54,21 +54,6 @@
         "type": "github"
       }
     },
-    "crane": {
-      "locked": {
-        "lastModified": 1767744144,
-        "narHash": "sha256-9/9ntI0D+HbN4G0TrK3KmHbTvwgswz7p8IEJsWyef8Q=",
-        "owner": "ipetkov",
-        "repo": "crane",
-        "rev": "2fb033290bf6b23f226d4c8b32f7f7a16b043d7e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ipetkov",
-        "repo": "crane",
-        "type": "github"
-      }
-    },
     "fenix": {
       "inputs": {
         "nixpkgs": [
@@ -88,33 +73,6 @@
       "original": {
         "owner": "nix-community",
         "repo": "fenix",
-        "type": "github"
-      }
-    },
-    "fff-nvim": {
-      "inputs": {
-        "crane": "crane",
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "rust-overlay": [
-          "rust-overlay"
-        ]
-      },
-      "locked": {
-        "lastModified": 1767943545,
-        "narHash": "sha256-+Evh9OBrObbjcCoOLn9m3anaogNJBX8GHi3xOB2FRUE=",
-        "owner": "dmtrKovalenko",
-        "repo": "fff.nvim",
-        "rev": "5ab271ea9da084495d18e3f90f47aa6a87289b01",
-        "type": "github"
-      },
-      "original": {
-        "owner": "dmtrKovalenko",
-        "repo": "fff.nvim",
         "type": "github"
       }
     },
@@ -185,6 +143,22 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "fzf-lua": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1768693530,
+        "narHash": "sha256-ImgbHtOVZxXbktWMsQt6mJmKPDjtgAjC7337TIhcXeI=",
+        "owner": "ibhagwan",
+        "repo": "fzf-lua",
+        "rev": "abe5ecafebb4e24feb162384d5f492431036e791",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ibhagwan",
+        "repo": "fzf-lua",
         "type": "github"
       }
     },
@@ -382,14 +356,13 @@
         "blink-cmp": "blink-cmp",
         "catpuccin": "catpuccin",
         "conform": "conform",
-        "fff-nvim": "fff-nvim",
         "flake-utils": "flake-utils",
+        "fzf-lua": "fzf-lua",
         "gen-luarc": "gen-luarc",
         "leap": "leap",
         "mini-nvim": "mini-nvim",
         "nixpkgs": "nixpkgs",
-        "oil": "oil",
-        "rust-overlay": "rust-overlay"
+        "oil": "oil"
       }
     },
     "rust-analyzer-src": {
@@ -406,26 +379,6 @@
         "owner": "rust-lang",
         "ref": "nightly",
         "repo": "rust-analyzer",
-        "type": "github"
-      }
-    },
-    "rust-overlay": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1768617670,
-        "narHash": "sha256-Z3+6dxoWZn+QFwjxAt5ZGXkiuCvCLgQP6pTS5eSWXqk=",
-        "owner": "oxalica",
-        "repo": "rust-overlay",
-        "rev": "56d0fbdd732f3686e8414b857cf885038fc17d57",
-        "type": "github"
-      },
-      "original": {
-        "owner": "oxalica",
-        "repo": "rust-overlay",
         "type": "github"
       }
     },

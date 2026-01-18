@@ -1,36 +1,10 @@
 {
-  nixConfig = {
-    substituters = [
-      "https://nix-community.cachix.org"
-      "https://cache.nixos.org"
-      "https://vt-nvim.cachix.org"
-    ];
-    trusted-public-keys = [
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-      "vt-nvim.cachix.org-1:wphAxtBWVTY7PNTNwT1HzvQwsIBLl9RY/em+HeFjBgc="
-    ];
-  };
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    rust-overlay = {
-      url = "github:oxalica/rust-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     flake-utils.url = "github:numtide/flake-utils";
 
     gen-luarc.url = "github:mrcjkb/nix-gen-luarc-json";
     gen-luarc.inputs.nixpkgs.follows = "nixpkgs";
-
-    fff-nvim.url = "github:dmtrKovalenko/fff.nvim";
-    fff-nvim.inputs.nixpkgs.follows = "nixpkgs";
-    fff-nvim.inputs.flake-utils.follows = "flake-utils";
-    fff-nvim.inputs.rust-overlay.follows = "rust-overlay";
-
-    # Plugins
-    # nvim-lspconfig.url = "github:neovim/nvim-lspconfig";
-    # nvim-lspconfig.flake = false;
 
     mini-nvim.url = "github:echasnovski/mini.nvim";
     mini-nvim.flake = false;
@@ -44,14 +18,11 @@
     conform.url = "github:stevearc/conform.nvim";
     conform.flake = false;
 
-    # gitsigns.url = "github:lewis6991/gitsigns.nvim";
-    # gitsigns.flake = false;
-    #
-    # fidget.url = "github:j-hui/fidget.nvim";
-    # fidget.flake = false;
-
     oil.url = "github:stevearc/oil.nvim";
     oil.flake = false;
+
+    fzf-lua.url = "github:ibhagwan/fzf-lua";
+    fzf-lua.flake = false;
 
     leap.url = "git+ssh://git@codeberg.org/andyg/leap.nvim";
     leap.flake = false;

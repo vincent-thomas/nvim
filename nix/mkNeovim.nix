@@ -101,8 +101,11 @@ let
     '';
 
     installPhase = ''
-      cp -r lua $out/lua
-      rm -r lua
+      # Copy nvim/lua only if it exists
+      if [ -d "lua" ]; then
+          cp -r lua $out/lua
+          rm -r lua
+      fi
       # Copy nvim/after only if it exists
       if [ -d "after" ]; then
           cp -r after $out/after

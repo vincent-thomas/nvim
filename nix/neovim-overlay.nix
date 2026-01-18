@@ -24,6 +24,7 @@ let
     (mkNvimPlugin inputs.mini-nvim "mini")
     (mkNvimPlugin inputs.oil "oil")
     (mkNvimPlugin inputs.leap "leap")
+    ((mkNvimPlugin inputs.fzf-lua "fzf-lua").overrideAttrs { doCheck = false; })
     ((mkNvimPlugin inputs.catpuccin "catpuccin").overrideAttrs { doCheck = false; })
     (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [
       p.bash
@@ -41,12 +42,12 @@ let
       p.sql
     ]))
 
-    (inputs.fff-nvim.packages.${prev.stdenv.hostPlatform.system}.fff-nvim)
     (inputs.blink-cmp.packages.${prev.stdenv.hostPlatform.system}.blink-cmp)
   ];
 
   extraPackages = with pkgs; [
-    # ripgrep
+    # fzf-lua
+    fzf
 
     # For nix
     nixd
