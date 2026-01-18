@@ -3,7 +3,7 @@
 
 # VTs nvim
 
-A simple, efficientOne file neovim config.
+A simple, efficient one-file neovim config.
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/macchiato.png" width="400" />
@@ -18,6 +18,9 @@ A simple, efficientOne file neovim config.
 </table>
 
 This config is designed to be efficient, minimal and functional in that order.
+
+All neovim configuration lives in `./nvim/init.lua`.
+LSPs defined lives in `./nvim/lsp/*`.
 
 ## Give it a go
 
