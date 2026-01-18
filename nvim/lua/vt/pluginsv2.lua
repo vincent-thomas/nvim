@@ -1,39 +1,20 @@
 -- TREESITTER
--- return {
--- --   {
---     'nvim-treesitter/nvim-treesitter',
--- config = function()
-require('nvim-treesitter.configs').setup {
-  sync_install = false,
-  auto_install = false,
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = false,
-    enable_autocmd = false,
-    disable = function(lang, buf)
-      local max_filesize = 100 * 1024 -- 100 KB
-      local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-      if ok and stats and stats.size > max_filesize then
-        vim.notify(
-          'File larger than 100KB treesitter disabled for performance',
-          vim.log.levels.WARN,
-          { title = 'Treesitter' }
-        )
-        return true
-      end
-    end,
-  },
-  indent = { enable = true },
-}
---   end,
--- },
+vim.api.nvim_create_autocmd('FileType', {
+  callback = function(args)
+    local max_filesize = 100 * 1024 -- 100 KB
+    local ok, stats = pcall(vim.uv.fs_stat, vim.api.nvim_buf_get_name(args.buf))
+    if ok and stats and stats.size > max_filesize then
+      vim.notify(
+        'File larger than 100KB treesitter disabled for performance',
+        vim.log.levels.WARN,
+        { title = 'Treesitter' }
+      )
+      return
+    end
+    pcall(vim.treesitter.start, args.buf)
+  end,
+})
 
--- LSPCONFIG
--- the colorscheme should be available when starting Neovim
--- {
---   'neovim/nvim-lspconfig',
---   priority = 1000,
--- function lspconfig_setup()
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(ev)
     local opts = { buffer = ev.buf, silent = true }
@@ -41,82 +22,38 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'gd', vim.lsp.buf.declaration, opts)
     vim.keymap.set('n', 'gD', vim.lsp.buf.definition, opts)
     vim.keymap.set('n', '<C-a>', vim.lsp.buf.code_action, opts)
+    vim.lsp.inlay_hint.enable(false, { bufnr = ev.buf })
   end,
 })
 
--- vim.lsp.enable('dockerls')
 vim.lsp.enable('ts_ls')
 vim.lsp.enable('lua_ls')
 vim.lsp.enable('rust_analyzer')
 vim.lsp.enable('nixd')
---
--- -- Optional: Set up keybindings and inlay hints on attach
--- vim.api.nvim_create_autocmd('LspAttach', {
---   callback = function(args)
---     local client = vim.lsp.get_client_by_id(args.data.client_id)
---     if client.name == 'rust_analyzer' then
---       local bufnr = args.buf
---
---       -- Enable inlay hints
---       vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
---
---       -- Keybindings
---       vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = bufnr })
---       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = bufnr })
---       vim.keymap.set('n', 'gr', vim.lsp.buf.references, { buffer = bufnr })
---       vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { buffer = bufnr })
---       vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { buffer = bufnr })
---
---       -- Rust-specific: expandMacro, joinLines, etc.
---       vim.keymap.set('n', '<leader>em', function()
---         vim.cmd.RustLsp('expandMacro')
---       end, { buffer = bufnr, desc = 'Expand macro' })
---     end
---   end,
--- })
--- vim.lsp.enable('rust_analyzer')
 
--- require("lspconfig").setup(lspconfig_setup())
+-- BLINK CMP
 
--- NVIM CMP
-
-function nvim_cmp_setup()
-  vim.lsp.config('*', { capabilities = require('cmp_nvim_lsp').default_capabilities() })
-
-  vim.api.nvim_set_hl(0, 'CmpGhostText', { link = 'Comment', default = true })
-  local cmp = require('cmp')
-  local defaults = require('cmp.config.default')()
-  local auto_select = true
-  return {
-    auto_brackets = {}, -- configure any filetype to auto add brackets
-    completion = {
-      completeopt = 'menu,menuone,noinsert' .. (auto_select and '' or ',noselect'),
+require('blink.cmp').setup {
+  keymap = {
+    preset = 'default',
+    ['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
+    ['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
+    ['<C-n>'] = { 'select_next', 'fallback' },
+    ['<C-p>'] = { 'select_prev', 'fallback' },
+    ['<C-Space>'] = { 'show', 'fallback' },
+    ['<CR>'] = { 'accept', 'fallback' },
+    ['<C-y>'] = { 'accept', 'fallback' },
+    ['<C-CR>'] = { 'cancel', 'fallback' },
+  },
+  sources = {
+    default = { 'lsp', 'path', 'buffer' },
+  },
+  completion = {
+    list = {
+      selection = { preselect = true, auto_insert = false },
     },
-    preselect = auto_select and cmp.PreselectMode.Item or cmp.PreselectMode.None,
-    mapping = cmp.mapping.preset.insert {
-      ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-      ['<C-f>'] = cmp.mapping.scroll_docs(4),
-      ['<C-n>'] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
-      ['<C-p>'] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
-      ['<C-Space>'] = cmp.mapping.complete(),
-      ['<CR>'] = cmp.mapping.confirm { select = auto_select },
-      ['<C-y>'] = cmp.mapping.confirm { select = true },
-      ['<C-CR>'] = function(fallback)
-        cmp.abort()
-        fallback()
-      end,
-    },
-    sources = cmp.config.sources({
-      { name = 'nvim_lsp' },
-      { name = 'path' },
-    }, {
-      { name = 'buffer' },
-    }),
-    sorting = defaults.sorting,
-  }
-end
-
-require('cmp').setup(nvim_cmp_setup())
+  },
+}
 
 -- OIL
 
@@ -146,7 +83,7 @@ vim.keymap.set('n', '-', vim.cmd.Oil)
 
 -- LEAP
 
-require('leap').set_default_mappings()
+vim.keymap.set({ 'n', 'o', 'x' }, 's', '<Plug>(leap)')
 
 -- NVIM
 
@@ -174,7 +111,7 @@ vim.ui.select = pick.ui_select
 vim.keymap.set('n', '<C-p>', pick.builtin.files)
 vim.keymap.set('n', '<C-g>', pick.builtin.grep_live)
 
-vim.keymap.set('n', 'gs', function()
+vim.keymap.set('n', '<C-s>', function()
   extras.pickers.lsp { scope = 'document_symbol' }
 end)
 
@@ -227,8 +164,8 @@ require('catppuccin').setup {
   custom_highlights = {},
   default_integrations = true,
   integrations = {
-    cmp = true,
-    gitsigns = true,
+    blink_cmp = true,
+    -- gitsigns = true,
     treesitter = true,
     mini = {
       enabled = true,
@@ -262,10 +199,6 @@ conform.setup {
 
     nix = { 'nixfmt' },
 
-    cpp = { 'clang-format' },
-
-    sql = { 'sqlfluff' },
-
     html = JsFormatters,
 
     _ = { 'trim_whitespace' },
@@ -278,6 +211,3 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     require('conform').format { bufnr = args.buf }
   end,
 })
-
--- FIDGET
-require('fidget').setup {}

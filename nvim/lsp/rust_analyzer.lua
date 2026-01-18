@@ -1,26 +1,3 @@
----@brief
----
---- https://github.com/rust-lang/rust-analyzer
----
---- rust-analyzer (aka rls 2.0), a language server for Rust
----
----
---- See [docs](https://rust-analyzer.github.io/book/configuration.html) for extra settings. The settings can be used like this:
---- ```lua
---- vim.lsp.config('rust_analyzer', {
----   settings = {
----     ['rust-analyzer'] = {
----       diagnostics = {
----         enable = false;
----       }
----     }
----   }
---- })
---- ```
----
---- Note: do not set `init_options` for this LS config, it will be automatically populated by the contents of settings["rust-analyzer"] per
---- https://github.com/rust-lang/rust-analyzer/blob/eb5da56d839ae0a9e9f50774fa3eb78eb0964550/docs/dev/lsp-extensions.md?plain=1#L26.
-
 local function reload_workspace(bufnr)
   local clients = vim.lsp.get_clients { bufnr = bufnr, name = 'rust_analyzer' }
   for _, client in ipairs(clients) do
@@ -56,87 +33,6 @@ end
 return {
   cmd = { 'rust-analyzer' },
   filetypes = { 'rust' },
-
-  settings = {
-    ['rust-analyzer'] = {
-      -- Cargo settings
-      cargo = {
-        allFeatures = true, -- Enable all Cargo features
-        loadOutDirsFromCheck = true,
-        buildScripts = {
-          enable = true,
-        },
-      },
-
-      -- Procedural macro support
-      procMacro = {
-        enable = true,
-        attributes = {
-          enable = true,
-        },
-      },
-
-      -- Diagnostics
-      diagnostics = {
-        enable = true,
-        experimental = {
-          enable = true,
-        },
-      },
-
-      -- Inlay hints
-      inlayHints = {
-        bindingModeHints = {
-          enable = true,
-        },
-        chainingHints = {
-          enable = true,
-        },
-        closingBraceHints = {
-          minLines = 25,
-        },
-        closureReturnTypeHints = {
-          enable = 'always',
-        },
-        lifetimeElisionHints = {
-          enable = 'always',
-          useParameterNames = true,
-        },
-        parameterHints = {
-          enable = true,
-        },
-        typeHints = {
-          enable = true,
-        },
-      },
-
-      checkOnSave = true,
-
-      -- Completion settings
-      completion = {
-        callable = {
-          snippets = 'fill_arguments',
-        },
-        postfix = {
-          enable = true,
-        },
-        autoimport = {
-          enable = true,
-        },
-      },
-
-      -- Hover actions
-      hover = {
-        actions = {
-          enable = true,
-          references = {
-            enable = true,
-          },
-        },
-      },
-    },
-  },
-
   root_dir = function(bufnr, on_dir)
     local fname = vim.api.nvim_buf_get_name(bufnr)
     local reused_dir = is_library(fname)
@@ -192,6 +88,23 @@ return {
           'rust-analyzer.runSingle',
           'rust-analyzer.debugSingle',
         },
+      },
+    },
+  },
+  settings = {
+    ['rust-analyzer'] = {
+      lens = {
+        debug = { enable = true },
+        enable = true,
+        implementations = { enable = true },
+        references = {
+          adt = { enable = true },
+          enumVariant = { enable = true },
+          method = { enable = true },
+          trait = { enable = true },
+        },
+        run = { enable = true },
+        updateTest = { enable = true },
       },
     },
   },

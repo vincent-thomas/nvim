@@ -13,16 +13,24 @@
   };
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     flake-utils.url = "github:numtide/flake-utils";
 
     gen-luarc.url = "github:mrcjkb/nix-gen-luarc-json";
     gen-luarc.inputs.nixpkgs.follows = "nixpkgs";
 
-    pre-commit-hooks.url = "github:cachix/git-hooks.nix";
+    fff-nvim.url = "github:dmtrKovalenko/fff.nvim";
+    fff-nvim.inputs.nixpkgs.follows = "nixpkgs";
+    fff-nvim.inputs.flake-utils.follows = "flake-utils";
+    fff-nvim.inputs.rust-overlay.follows = "rust-overlay";
 
     # Plugins
-    nvim-lspconfig.url = "github:neovim/nvim-lspconfig";
-    nvim-lspconfig.flake = false;
+    # nvim-lspconfig.url = "github:neovim/nvim-lspconfig";
+    # nvim-lspconfig.flake = false;
 
     mini-nvim.url = "github:echasnovski/mini.nvim";
     mini-nvim.flake = false;
@@ -30,25 +38,22 @@
     catpuccin.url = "github:catppuccin/nvim";
     catpuccin.flake = false;
 
-    nvim-cmp.url = "github:hrsh7th/nvim-cmp";
-    nvim-cmp.flake = false;
-
-    cmp-nvim-lsp.url = "github:hrsh7th/cmp-nvim-lsp";
-    cmp-nvim-lsp.flake = false;
+    blink-cmp.url = "github:saghen/blink.cmp";
+    blink-cmp.inputs.nixpkgs.follows = "nixpkgs";
 
     conform.url = "github:stevearc/conform.nvim";
     conform.flake = false;
 
-    gitsigns.url = "github:lewis6991/gitsigns.nvim";
-    gitsigns.flake = false;
-
-    fidget.url = "github:j-hui/fidget.nvim";
-    fidget.flake = false;
+    # gitsigns.url = "github:lewis6991/gitsigns.nvim";
+    # gitsigns.flake = false;
+    #
+    # fidget.url = "github:j-hui/fidget.nvim";
+    # fidget.flake = false;
 
     oil.url = "github:stevearc/oil.nvim";
     oil.flake = false;
 
-    leap.url = "github:ggandor/leap.nvim";
+    leap.url = "git+ssh://git@codeberg.org/andyg/leap.nvim";
     leap.flake = false;
   };
 
@@ -58,8 +63,6 @@
       nixpkgs,
       gen-luarc,
       flake-utils,
-
-      pre-commit-hooks,
       ...
     }:
     let

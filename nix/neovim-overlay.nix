@@ -19,27 +19,36 @@ let
   # This is the helper function that builds the Neovim derivation.
   mkNeovim = pkgs.callPackage ./mkNeovim.nix { inherit pkgs-wrapNeovim; };
 
-  all-plugins = with pkgs.vimPlugins; [
-    (mkNvimPlugin inputs.nvim-lspconfig "nvim-lspconfig")
-    ((mkNvimPlugin inputs.nvim-cmp "cmp").overrideAttrs {
-      doCheck = false;
-    })
-    (mkNvimPlugin inputs.cmp-nvim-lsp "cmp-nvim-lsp")
+  all-plugins = [
     (mkNvimPlugin inputs.conform "conform")
     (mkNvimPlugin inputs.mini-nvim "mini")
-    (mkNvimPlugin inputs.fidget "fidget")
     (mkNvimPlugin inputs.oil "oil")
-    (mkNvimPlugin inputs.gitsigns "gitsigns")
     (mkNvimPlugin inputs.leap "leap")
     ((mkNvimPlugin inputs.catpuccin "catpuccin").overrideAttrs { doCheck = false; })
-    nvim-treesitter.withAllGrammars
+    (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [
+      p.bash
+      p.go
+      p.javascript
+      p.json
+      p.lua
+      p.markdown
+      p.nix
+      p.rust
+      p.toml
+      p.typescript
+      p.yaml
+      p.tcl
+      p.sql
+    ]))
+
+    (inputs.fff-nvim.packages.${prev.stdenv.hostPlatform.system}.fff-nvim)
+    (inputs.blink-cmp.packages.${prev.stdenv.hostPlatform.system}.blink-cmp)
   ];
 
   extraPackages = with pkgs; [
-    ripgrep
+    # ripgrep
 
     # For nix
-    statix
     nixd
     nixfmt-rfc-style
 
@@ -58,14 +67,8 @@ let
     # Markdown
     marksman
 
-    # Emmet
-    emmet-ls
-
     # # Go
-    # gopls
-
-    # # C++
-    # clang-tools # includes clangd and clang-format
+    gopls
   ];
 in
 rec {
