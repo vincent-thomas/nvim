@@ -9,8 +9,8 @@ A simple, efficientOne file neovim config.
   <img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/macchiato.png" width="400" />
 </div>
 
-> “Perfection is attained not when there is nothing more to add, but when there is nothing more to remove.”
-> - *Antoine de Saint Exupéry*
+> “Perfection is attained not when there is nothing more to add, but when
+> there is nothing more to remove.” - *Antoine de Saint Exupéry*
 
 </td></tr>
 </table>
