@@ -21,7 +21,9 @@ let
 
   all-plugins = [
     (mkNvimPlugin inputs.conform "conform")
-    (mkNvimPlugin inputs.mini-nvim "mini")
+    # (mkNvimPlugin inputs.mini-nvim "mini")
+    (mkNvimPlugin inputs.mini-icons "mini.icons")
+    (mkNvimPlugin inputs.mini-hipatterns "mini.hipatterns")
     (mkNvimPlugin inputs.oil "oil")
     (mkNvimPlugin inputs.leap "leap")
     ((mkNvimPlugin inputs.fzf-lua "fzf-lua").overrideAttrs { doCheck = false; })

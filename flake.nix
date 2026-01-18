@@ -6,8 +6,11 @@
     gen-luarc.url = "github:mrcjkb/nix-gen-luarc-json";
     gen-luarc.inputs.nixpkgs.follows = "nixpkgs";
 
-    mini-nvim.url = "github:echasnovski/mini.nvim";
-    mini-nvim.flake = false;
+    mini-icons.url = "github:nvim-mini/mini.icons";
+    mini-icons.flake = false;
+
+    mini-hipatterns.url = "github:nvim-mini/mini.hipatterns";
+    mini-hipatterns.flake = false;
 
     catpuccin.url = "github:catppuccin/nvim";
     catpuccin.flake = false;
@@ -30,25 +33,18 @@
 
   outputs =
     inputs@{
-      self,
       nixpkgs,
       gen-luarc,
       flake-utils,
       ...
     }:
     let
-      supportedSystems = [
-        "x86_64-linux"
-        "aarch64-linux"
-        "x86_64-darwin"
-        "aarch64-darwin"
-      ];
-
       neovim-overlay = import ./nix/neovim-overlay.nix { inherit inputs; };
-
-      inherit (self) outputs;
     in
-    flake-utils.lib.eachSystem supportedSystems (
+    {
+      overlays.default = neovim-overlay;
+    }
+    // flake-utils.lib.eachDefaultSystem (
       system:
       let
         pkgs = import nixpkgs {
@@ -68,11 +64,7 @@
 
         devShell = pkgs.mkShell {
           shellHook = "ln -fs ${pkgs.nvim-luarc-json} .luarc.json";
-          buildInputs = [ pkgs.vt-nvim ];
         };
       }
-    )
-    // {
-      overlays.default = neovim-overlay;
-    };
+    );
 }

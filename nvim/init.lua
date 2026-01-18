@@ -155,7 +155,6 @@ vim.keymap.set('n', '<C-e>', fzf_lua.lsp_workspace_diagnostics)
 vim.keymap.set('n', '<C-e>', fzf_lua.lsp_workspace_diagnostics)
 
 -- NVIM
-require('mini.statusline').setup()
 require('mini.icons').setup()
 require('mini.hipatterns').setup()
 
