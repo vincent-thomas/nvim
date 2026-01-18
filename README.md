@@ -26,7 +26,7 @@ LSPs defined lives in `./nvim/lsp/*`.
 
 ### Using `nix`?
 ```console
-nix run "https://codeberg.org/vtho/nvim"
+nix run git+https://codeberg.org/vtho/nvim
 ```
 
 ### Not using?
