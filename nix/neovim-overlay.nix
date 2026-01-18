@@ -31,14 +31,14 @@ let
     (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [
       p.bash
       p.go
-      p.javascript
-      p.json
       p.lua
       p.markdown
       p.nix
       p.rust
       p.toml
+      p.javascript
       p.typescript
+      p.json
       p.yaml
       p.tcl
       p.sql
