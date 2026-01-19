@@ -55,6 +55,9 @@ let
     nixd
     nixfmt-rfc-style
 
+    # Bash
+    bash-language-server
+
     # For lua
     lua-language-server
     stylua
