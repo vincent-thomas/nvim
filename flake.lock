@@ -240,11 +240,11 @@
         "rev": "819388c5546548016b0dab9a72a42aa5a40bf35d",
         "revCount": 691,
         "type": "git",
-        "url": "ssh://git@codeberg.org/andyg/leap.nvim"
+        "url": "http://codeberg.org/andyg/leap.nvim"
       },
       "original": {
         "type": "git",
-        "url": "ssh://git@codeberg.org/andyg/leap.nvim"
+        "url": "http://codeberg.org/andyg/leap.nvim"
       }
     },
     "luvit-meta": {

@@ -27,7 +27,7 @@
     fzf-lua.url = "github:ibhagwan/fzf-lua";
     fzf-lua.flake = false;
 
-    leap.url = "git+ssh://git@codeberg.org/andyg/leap.nvim";
+    leap.url = "git+http://codeberg.org/andyg/leap.nvim";
     leap.flake = false;
   };
 
