@@ -89,6 +89,8 @@ vim.lsp.enable('lua_ls')
 vim.lsp.enable('rust_analyzer')
 vim.lsp.enable('nixd')
 vim.lsp.enable('bashls')
+vim.lsp.enable('marksman')
+vim.lsp.enable('gopls')
 
 -- BLINK CMP
 
@@ -153,11 +155,17 @@ vim.keymap.set('n', 'gr', fzf_lua.lsp_references)
 vim.keymap.set('n', 'gt', fzf_lua.lsp_typedefs)
 vim.keymap.set('n', 'gs', fzf_lua.lsp_document_symbols)
 vim.keymap.set('n', '<C-e>', fzf_lua.lsp_workspace_diagnostics)
-vim.keymap.set('n', '<C-e>', fzf_lua.lsp_workspace_diagnostics)
+
+-- List all TODO/FIXME comments in the project
+vim.keymap.set('n', 'gf', function()
+  fzf_lua.grep {
+    search = '(TODO|FIXME|HACK|NOTE|XXX|BUG):?',
+    no_esc = true,
+  }
+end, { desc = 'List TODO/FIXME comments' })
 
 -- NVIM
 require('mini.icons').setup()
-require('mini.hipatterns').setup()
 
 -- CATPPUCCIN
 require('catppuccin').setup {

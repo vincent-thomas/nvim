@@ -263,22 +263,6 @@
         "type": "github"
       }
     },
-    "mini-hipatterns": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1762511194,
-        "narHash": "sha256-FkpBYOKzDG3f3DttViAp7V9pj6EUppYKbZBah8L8Agk=",
-        "owner": "nvim-mini",
-        "repo": "mini.hipatterns",
-        "rev": "add8d8abad602787377ec5d81f6b248605828e0f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nvim-mini",
-        "repo": "mini.hipatterns",
-        "type": "github"
-      }
-    },
     "mini-icons": {
       "flake": false,
       "locked": {
@@ -376,7 +360,6 @@
         "fzf-lua": "fzf-lua",
         "gen-luarc": "gen-luarc",
         "leap": "leap",
-        "mini-hipatterns": "mini-hipatterns",
         "mini-icons": "mini-icons",
         "nixpkgs": "nixpkgs",
         "oil": "oil"

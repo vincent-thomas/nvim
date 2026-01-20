@@ -6,29 +6,27 @@
     gen-luarc.url = "github:mrcjkb/nix-gen-luarc-json";
     gen-luarc.inputs.nixpkgs.follows = "nixpkgs";
 
-    mini-icons.url = "github:nvim-mini/mini.icons";
-    mini-icons.flake = false;
-
-    mini-hipatterns.url = "github:nvim-mini/mini.hipatterns";
-    mini-hipatterns.flake = false;
-
-    catpuccin.url = "github:catppuccin/nvim";
-    catpuccin.flake = false;
-
-    blink-cmp.url = "github:saghen/blink.cmp";
-    blink-cmp.inputs.nixpkgs.follows = "nixpkgs";
-
-    conform.url = "github:stevearc/conform.nvim";
-    conform.flake = false;
-
-    oil.url = "github:stevearc/oil.nvim";
-    oil.flake = false;
-
     fzf-lua.url = "github:ibhagwan/fzf-lua";
     fzf-lua.flake = false;
 
     leap.url = "git+http://codeberg.org/andyg/leap.nvim";
     leap.flake = false;
+
+    oil.url = "github:stevearc/oil.nvim";
+    oil.flake = false;
+
+    conform.url = "github:stevearc/conform.nvim";
+    conform.flake = false;
+
+    blink-cmp.url = "github:saghen/blink.cmp";
+    blink-cmp.inputs.nixpkgs.follows = "nixpkgs";
+
+    mini-icons.url = "github:nvim-mini/mini.icons";
+    mini-icons.flake = false;
+
+    catpuccin.url = "github:catppuccin/nvim";
+    catpuccin.flake = false;
+
   };
 
   outputs =
