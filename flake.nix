@@ -26,18 +26,26 @@
 
     catpuccin.url = "github:catppuccin/nvim";
     catpuccin.flake = false;
-
   };
 
   outputs =
     inputs@{
       nixpkgs,
-      gen-luarc,
       flake-utils,
       ...
     }:
     let
       neovim-overlay = import ./nix/neovim-overlay.nix { inherit inputs; };
+      lib = nixpkgs.lib;
+      pkgsForSystem =
+        system:
+        import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+          overlays = [
+            neovim-overlay
+          ];
+        };
     in
     {
       overlays.default = neovim-overlay;
@@ -45,14 +53,7 @@
     // flake-utils.lib.eachDefaultSystem (
       system:
       let
-        pkgs = import nixpkgs {
-          inherit system;
-          overlays = [
-            # Import the overlay, so that the final Neovim derivation(s) can be accessed via pkgs.<nvim-pkg>
-            neovim-overlay
-            gen-luarc.overlays.default
-          ];
-        };
+        pkgs = pkgsForSystem system;
       in
       {
         packages = rec {

@@ -56,6 +56,15 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz')
 vim.g.mapleader = ' '
 vim.g.maplocalleader = '\\'
 
+-- Eagle filetype detection and tree-sitter parser mapping
+vim.filetype.add {
+  extension = {
+    eagle = 'eagle',
+    eeagle = 'eagle',
+  },
+}
+vim.treesitter.language.register('tcl', 'eagle')
+
 -- PLUGINS:
 --
 -- TREESITTER
@@ -93,6 +102,7 @@ vim.lsp.enable('nixd')
 vim.lsp.enable('bashls')
 vim.lsp.enable('marksman')
 vim.lsp.enable('gopls')
+vim.lsp.enable('eagle')
 
 -- BLINK CMP
 

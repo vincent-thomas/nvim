@@ -2,9 +2,8 @@
 final: prev:
 with final.pkgs.lib;
 let
-  pkgs = final;
+  pkgs = final // final.pkgs;
 
-  # Use this to create a plugin from a flake input
   mkNvimPlugin =
     src: pname:
     pkgs.vimUtils.buildVimPlugin {
@@ -12,16 +11,12 @@ let
       version = src.rev;
     };
 
-  # Make sure we use the pinned nixpkgs instance for wrapNeovimUnstable,
-  # otherwise it could have an incompatible signature when applying this overlay.
   pkgs-wrapNeovim = inputs.nixpkgs.legacyPackages.${pkgs.system};
 
-  # This is the helper function that builds the Neovim derivation.
   mkNeovim = pkgs.callPackage ./mkNeovim.nix { inherit pkgs-wrapNeovim; };
 
   all-plugins = [
     (mkNvimPlugin inputs.conform "conform")
-    # (mkNvimPlugin inputs.mini-nvim "mini")
     (mkNvimPlugin inputs.mini-icons "mini.icons")
     (mkNvimPlugin inputs.oil "oil")
     (mkNvimPlugin inputs.leap "leap")
@@ -46,34 +41,49 @@ let
     (inputs.blink-cmp.packages.${prev.stdenv.hostPlatform.system}.blink-cmp)
   ];
 
-  extraPackages = with pkgs; [
-    # fzf-lua
-    fzf
+  eagle-lsp = pkgs.buildNpmPackage {
+    pname = "eagle-lsp";
+    version = "1.0.1";
 
-    # For nix
+    src = pkgs.fetchFromGitHub {
+      owner = "mistachkin";
+      repo = "eagle-lsp";
+      rev = "trunk";
+      hash = "sha256-FhBadgYzVZezidM+itgudSLh8LqioX5O2RD2SXl8keg=";
+    };
+
+    npmDepsHash = "sha256-xyZGyQepigHl5gTGkT/MOqPQhWm9nuX8FBv/Wi1AjI0=";
+
+    dontNpmBuild = true;
+
+    nativeBuildInputs = [ pkgs.makeWrapper ];
+
+    installPhase = ''
+      runHook preInstall
+      mkdir -p $out/lib/eagle-lsp
+      cp -r server.js eagle-data.js eagle-parser.js data node_modules $out/lib/eagle-lsp/
+      mkdir -p $out/bin
+      makeWrapper ${pkgs.nodejs_22}/bin/node $out/bin/eagle-lsp \
+        --add-flags "$out/lib/eagle-lsp/server.js" \
+        --add-flags "--stdio"
+      runHook postInstall
+    '';
+  };
+
+  extraPackages = with pkgs; [
+    fzf
     nixd
     nixfmt-rfc-style
-
-    # Bash
     bash-language-server
-
-    # For lua
     lua-language-server
     stylua
-
-    # For rust
     rustfmt
     rust-analyzer
-
-    # Ts/js
     typescript-language-server
-    # prettierd
-
-    # Markdown
     marksman
-
-    # # Go
     gopls
+    # nodejs_22
+    eagle-lsp
   ];
 in
 rec {
