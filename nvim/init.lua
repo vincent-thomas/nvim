@@ -160,6 +160,11 @@ vim.keymap.set({ 'n', 'o', 'x' }, 's', '<Plug>(leap)')
 
 -- FZF-lua
 local fzf_lua = require('fzf-lua')
+fzf_lua.setup {
+  files = {
+    cmd = 'fd --type f --hidden --exclude .git',
+  },
+}
 vim.keymap.set('n', '<C-p>', fzf_lua.files)
 vim.keymap.set('n', '<C-g>', fzf_lua.live_grep)
 vim.keymap.set('n', 'gi', fzf_lua.lsp_implementations)

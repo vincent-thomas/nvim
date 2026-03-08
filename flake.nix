@@ -32,11 +32,11 @@
     inputs@{
       nixpkgs,
       flake-utils,
+      gen-luarc,
       ...
     }:
     let
       neovim-overlay = import ./nix/neovim-overlay.nix { inherit inputs; };
-      lib = nixpkgs.lib;
       pkgsForSystem =
         system:
         import nixpkgs {
@@ -44,6 +44,7 @@
           config.allowUnfree = true;
           overlays = [
             neovim-overlay
+            gen-luarc.overlays.default
           ];
         };
     in
@@ -59,6 +60,19 @@
         packages = rec {
           default = nvim;
           nvim = pkgs.vt-nvim;
+        };
+
+        apps = {
+          luarc =
+            let
+              luarc-script = pkgs.writeShellScriptBin "luarc-devsetup" ''
+                ln -fs ${pkgs.nvim-luarc-json} .luarc.json
+              '';
+            in
+            {
+              type = "app";
+              program = "${luarc-script}/bin/luarc-devsetup";
+            };
         };
 
         devShell = pkgs.mkShell {
