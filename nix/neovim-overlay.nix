@@ -45,14 +45,9 @@ let
     pname = "eagle-lsp";
     version = "1.0.1";
 
-    src = pkgs.fetchFromGitHub {
-      owner = "mistachkin";
-      repo = "eagle-lsp";
-      rev = "trunk";
-      hash = "sha256-FhBadgYzVZezidM+itgudSLh8LqioX5O2RD2SXl8keg=";
-    };
+    src = inputs.eagle-lsp;
 
-    npmDepsHash = "sha256-xyZGyQepigHl5gTGkT/MOqPQhWm9nuX8FBv/Wi1AjI0=";
+    npmDepsHash = "sha256-MkeCOVx7oy/RAYkvHfN80M8/FTmavinapPeMEh9I6y4=";
 
     dontNpmBuild = true;
 
@@ -73,7 +68,7 @@ let
   extraPackages = with pkgs; [
     fzf
     nixd
-    nixfmt-rfc-style
+    nixfmt
     bash-language-server
     lua-language-server
     stylua
@@ -82,7 +77,6 @@ let
     typescript-language-server
     marksman
     gopls
-    # nodejs_22
     eagle-lsp
   ];
 in

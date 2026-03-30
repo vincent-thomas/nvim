@@ -26,6 +26,9 @@
 
     catpuccin.url = "github:catppuccin/nvim";
     catpuccin.flake = false;
+
+    eagle-lsp.url = "github:mistachkin/eagle-lsp";
+    eagle-lsp.flake = false;
   };
 
   outputs =
