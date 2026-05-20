@@ -73,7 +73,6 @@ let
     lua-language-server
     stylua
     rustfmt
-    rust-analyzer
     typescript-language-server
     marksman
     gopls

@@ -12,16 +12,32 @@ local function reload_workspace(bufnr)
   end
 end
 
+local rust_sysroot
+
+local function get_rust_sysroot()
+  if rust_sysroot ~= nil then
+    return rust_sysroot or nil
+  end
+
+  local result = vim.system({ 'rustc', '--print', 'sysroot' }, { text = true }):wait()
+  if result.code ~= 0 or not result.stdout then
+    rust_sysroot = false
+    return nil
+  end
+
+  rust_sysroot = vim.fs.normalize(vim.trim(result.stdout))
+  return rust_sysroot
+end
+
 local function is_library(fname)
   local user_home = vim.fs.normalize(vim.env.HOME)
   local cargo_home = os.getenv('CARGO_HOME') or user_home .. '/.cargo'
   local registry = cargo_home .. '/registry/src'
   local git_registry = cargo_home .. '/git/checkouts'
+  local sysroot = get_rust_sysroot()
+  local sysroot_src = sysroot and (sysroot .. '/lib/rustlib/src/rust') or nil
 
-  local rustup_home = os.getenv('RUSTUP_HOME') or user_home .. '/.rustup'
-  local toolchains = rustup_home .. '/toolchains'
-
-  for _, item in ipairs { toolchains, registry, git_registry } do
+  for _, item in ipairs { sysroot_src, registry, git_registry } do
     if vim.fs.relpath(item, fname) then
       local clients = vim.lsp.get_clients { name = 'rust_analyzer' }
       return #clients > 0 and clients[#clients].config.root_dir or nil
