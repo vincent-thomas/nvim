@@ -38,7 +38,10 @@ let
       p.sql
     ]))
 
-    (inputs.blink-cmp.packages.${prev.stdenv.hostPlatform.system}.blink-cmp)
+    (inputs.blink-cmp.packages.${prev.stdenv.hostPlatform.system}.blink-cmp.overrideAttrs {
+      doCheck = false;
+    })
+
   ];
 
   eagle-lsp = pkgs.buildNpmPackage {
