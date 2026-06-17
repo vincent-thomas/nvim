@@ -80,6 +80,7 @@ let
     marksman
     gopls
     eagle-lsp
+    prettierd
   ];
 in
 rec {
