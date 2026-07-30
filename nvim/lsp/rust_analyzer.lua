@@ -38,7 +38,7 @@ local function is_library(fname)
   local sysroot_src = sysroot and (sysroot .. '/lib/rustlib/src/rust') or nil
 
   for _, item in ipairs { sysroot_src, registry, git_registry } do
-    if vim.fs.relpath(item, fname) then
+    if item and vim.fs.relpath(item, fname) then
       local clients = vim.lsp.get_clients { name = 'rust_analyzer' }
       return #clients > 0 and clients[#clients].config.root_dir or nil
     end
