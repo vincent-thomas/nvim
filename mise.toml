@@ -1,0 +1,5 @@
+[tools]
+"lua-language-server" = "latest"
+"prettier" = "latest"
+"stylua" = "latest"
+"cargo:nixfmt_rs" = "latest"
