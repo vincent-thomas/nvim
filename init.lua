@@ -66,7 +66,19 @@ vim.filetype.add {
 vim.treesitter.language.register('tcl', 'eagle')
 
 -- PLUGINS:
---
+
+vim.pack.add {
+  'https://github.com/stevearc/conform.nvim',
+  'https://github.com/nvim-mini/mini.icons',
+  'https://github.com/stevearc/oil.nvim',
+  'https://codeberg.org/andyg/leap.nvim',
+  'https://github.com/ibhagwan/fzf-lua',
+  { src = 'https://github.com/catppuccin/nvim', name = 'catppuccin' },
+  'https://github.com/nvim-treesitter/nvim-treesitter',
+  'https://github.com/saghen/blink.lib',
+  'https://github.com/saghen/blink.cmp',
+}
+
 -- TREESITTER
 vim.api.nvim_create_autocmd('FileType', {
   callback = function(args)
@@ -105,7 +117,11 @@ vim.lsp.enable('eagle')
 
 -- BLINK CMP
 
-require('blink.cmp').setup {
+local blink_cmp = require('blink.cmp')
+if not blink_cmp.library_available() then
+  blink_cmp.build():pwait()
+end
+blink_cmp.setup {
   keymap = {
     preset = 'default',
     ['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
