@@ -92,6 +92,41 @@ version = "3.9.6"
 backend = "npm:prettier"
 specifiers = ["latest"]
 
+[[tools.rust-analyzer]]
+version = "2026-09-28"
+backend = "aqua:rust-lang/rust-analyzer"
+specifiers = ["latest"]
+
+[tools.rust-analyzer."platforms.linux-arm64"]
+checksum = "sha256:03bad9c3dabb0f07a2678d5f9f8f1575a3742ea141506e14b3a26b42a1f896f3"
+url = "https://github.com/rust-lang/rust-analyzer/releases/download/2026-09-28/rust-analyzer-aarch64-unknown-linux-gnu.gz"
+url_api = "https://api.github.com/repos/rust-lang/rust-analyzer/releases/assets/594528566"
+
+[tools.rust-analyzer."platforms.linux-x64"]
+checksum = "sha256:23f711d86b5f826e22886f01d7355dc01e0f4c1357dafa29710a95b903b48c85"
+url = "https://github.com/rust-lang/rust-analyzer/releases/download/2026-09-28/rust-analyzer-x86_64-unknown-linux-gnu.gz"
+url_api = "https://api.github.com/repos/rust-lang/rust-analyzer/releases/assets/594529241"
+
+[tools.rust-analyzer."platforms.linux-x64-musl"]
+checksum = "sha256:b9a0edbda7a7d9eff0cb3cf49b7f14b2f81e2490095ff56a3ff558ec08b33ae4"
+url = "https://github.com/rust-lang/rust-analyzer/releases/download/2026-09-28/rust-analyzer-x86_64-unknown-linux-musl.gz"
+url_api = "https://api.github.com/repos/rust-lang/rust-analyzer/releases/assets/594529273"
+
+[tools.rust-analyzer."platforms.macos-arm64"]
+checksum = "sha256:54ec873d8996e2c127d758bf45d4eacb6d3371dae4f6f6d5d3f05cedbae5fd59"
+url = "https://github.com/rust-lang/rust-analyzer/releases/download/2026-09-28/rust-analyzer-aarch64-apple-darwin.gz"
+url_api = "https://api.github.com/repos/rust-lang/rust-analyzer/releases/assets/594528461"
+
+[tools.rust-analyzer."platforms.macos-x64"]
+checksum = "sha256:d032c0eb75e4597cc8ffc35ea4cdbd9eecc8341936b6edac6749e679fc3f0682"
+url = "https://github.com/rust-lang/rust-analyzer/releases/download/2026-09-28/rust-analyzer-x86_64-apple-darwin.gz"
+url_api = "https://api.github.com/repos/rust-lang/rust-analyzer/releases/assets/594529150"
+
+[tools.rust-analyzer."platforms.windows-x64"]
+checksum = "sha256:ad78fb368525404c6ac09c4bba33e90797902ce1f5a17db0925c695cae096ccc"
+url = "https://github.com/rust-lang/rust-analyzer/releases/download/2026-09-28/rust-analyzer-x86_64-pc-windows-msvc.zip"
+url_api = "https://api.github.com/repos/rust-lang/rust-analyzer/releases/assets/594529211"
+
 [[tools.stylua]]
 version = "2.5.2"
 backend = "aqua:JohnnyMorganz/StyLua"

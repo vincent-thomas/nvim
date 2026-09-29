@@ -3,3 +3,4 @@
 "prettier" = "latest"
 "stylua" = "latest"
 "cargo:nixfmt_rs" = "latest"
+rust-analyzer = "latest"
